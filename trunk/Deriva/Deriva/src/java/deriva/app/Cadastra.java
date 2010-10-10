@@ -4,6 +4,9 @@ import deriva.db.DAOFactory;
 import deriva.db.userDAO;
 import deriva.neg.Usuario;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +38,11 @@ public class Cadastra extends HttpServlet {
         if (usuario != null && senha != null && nome != null && sobrenome != null && datanasc != null) {
             userDAO dao1 = DAOFactory.getUserDAO();
             Usuario user = new Usuario(usuario, senha, nome, sobrenome, datanasc);
-            dao1.cadastra(user);
+            try {
+                dao1.cadastra(user);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
 
 

@@ -31,7 +31,7 @@ public class userDAO {
 		this.connectionFactory = connectionFactory;
 	}
 
-    public boolean validaLogin(Usuario usuario){
+    public boolean validaLogin(Usuario usuario) throws SQLException{
         ResultSet rs = null;
         try{
             conn = connectionFactory.getConnection();
@@ -45,27 +45,44 @@ public class userDAO {
             }
 
         }catch(SQLException e){
-
+//           throw e;
         }
         return false;
     }
-	public void cadastra(Usuario usuario) {
-		
+	public void cadastra(Usuario usuario) throws SQLException {
 
 		try {
 			conn = connectionFactory.getConnection();
 
-			ps = conn.prepareStatement("insert into Usuario(email, senha, nome, sobrenome, dtnasc) values (?, ?, ?, ?, ?)");
-			ps.setString(1, usuario.getEmail());
-			ps.setString(2, usuario.getSenha());
-			ps.setString(3, usuario.getNome());
-            ps.setString(4, usuario.getSobrenome());
-            ps.setDate(5, usuario.getDtnasc());
+			
+                        //ps = conn.prepareStatement("insert into Usuario(email, senha, nome, sobrenome, dtnasc) values (?, ?, ?, ?, ?)");
+
+                        ps = conn.prepareStatement("INSERT INTO Usuario"
+                                + "(email, senha, nickname, nome, sobrenome, sexo, mensagemPessoal, imagemPerfil, dtnasc)"
+                                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+
+                        ps.setString(1, usuario.getEmail());
+                        ps.setString(2, usuario.getSenha());
+                        ps.setString(3, usuario.getNickname());
+                        ps.setString(4, usuario.getNome());
+                        ps.setString(5, usuario.getSobrenome());
+                        ps.setString(6, String.valueOf(usuario.getSexo()));
+                        ps.setString(7, usuario.getMensagempessoal());
+                        ps.setString(8, usuario.getImagemPerfil());
+                        ps.setDate(9, usuario.getDtnasc());
+
+
+//			ps.setString(1, usuario.getEmail());
+//			ps.setString(2, usuario.getSenha());
+//			ps.setString(3, usuario.getNome());
+//                        ps.setString(4, usuario.getSobrenome());
+//                        ps.setDate(5, usuario.getDtnasc());
 
 			ps.executeUpdate();
 
 		} catch (SQLException ex) {
 			LOG.log(Level.SEVERE, null, ex);
+                        throw ex;
 		} finally {
 			if (ps != null)
 			{
@@ -75,7 +92,7 @@ public class userDAO {
 			}
 			if (conn != null)
 			{
-				try {
+                            try {
 					conn.close();
 				} catch (SQLException e) { }
 			}
