@@ -9,11 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
+import javax.servlet.http.HttpSession;
 
 public class Cadastra extends HttpServlet {
 
@@ -32,8 +32,6 @@ public class Cadastra extends HttpServlet {
         datanasc = new java.sql.Date((Integer.parseInt(strAno) - 1900), Integer.parseInt(strMes), Integer.parseInt(strDia));
         
 
-
-
 		/* verifica autenticação */
         if (usuario != null && senha != null && nome != null && sobrenome != null && datanasc != null) {
             userDAO dao1 = DAOFactory.getUserDAO();
@@ -43,19 +41,35 @@ public class Cadastra extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
+            //se nao houver session, cria uma nova.
+            AdicionarSession(usuario, nome, senha, request.getSession(true));
 
-			/* redireciona (client-side) */
-			response.sendRedirect("index.jsp");
-		} else {
-			/* define código de erro */
-			request.setAttribute("errorCode", 1);
+            // cria cookies
+            Cookie ckEmail = new Cookie("email", usuario);
+            Cookie ckSenha = new Cookie("senha", senha);
+            Cookie ckNome = new Cookie("nome", nome);
 
-			/* redireciona (server-side) */
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-			dispatcher.forward(request, response);
-		}
+           // Expiram em 1 dia.
+           ckEmail.setMaxAge(60*60*24);
+           ckSenha.setMaxAge(60*60*24);
+           ckNome.setMaxAge(60*60*24);
+
+           response.addCookie(ckEmail);
+           response.addCookie(ckSenha);
+           response.addCookie(ckNome);
+
+	    /* redireciona (client-side) */
+	    response.sendRedirect("/home.jsp");
+	}
+        else {
+            /* define código de erro */
+            request.setAttribute("errorCode", 1);
+
+            /* redireciona (server-side) */
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+            dispatcher.forward(request, response);
+	}
     }
 
     @Override
@@ -68,5 +82,14 @@ public class Cadastra extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
             processRequest(request, response);
+    }
+
+
+    public void AdicionarSession(String usuario, String senha, String nome, HttpSession session){
+        /* cria uma sessão e adiciona o login do usuário */
+       if (session != null){
+            session.setAttribute("usuario", usuario);
+            session.setAttribute("senha", senha);
+       }
     }
 }
