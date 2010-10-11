@@ -21,6 +21,10 @@
         <servlet-name>Cadastra</servlet-name>
         <servlet-class>deriva.app.Cadastra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Autorizacao</servlet-name>
+        <servlet-class>deriva.app.Autorizacao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>Cadastra</servlet-name>
         <url-pattern>/Cadastra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Autorizacao</servlet-name>
+        <url-pattern>/home.jsp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

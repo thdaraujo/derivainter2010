@@ -2,7 +2,6 @@ package deriva.neg;
 
 import deriva.db.DAOFactory;
 import deriva.db.userDAO;
-import javax.servlet.http.Cookie;
 
 /** Maneja autorização de acesso.
  *
@@ -31,19 +30,15 @@ public class Autorizacao {
         Logado = false;
     }
 
-  public boolean PossuiAutorizacao(Cookie email, Cookie senha){
+  public boolean PossuiAutorizacao(String email, String senha){
       if (Logado){
-         if (email.getValue().equals(usuario.getEmail())
-                 && senha.getValue().equals(usuario.getSenha())){
+         if (email.equals(usuario.getEmail())
+                 && senha.equals(usuario.getSenha())){
              ExisteUsuarioAutorizado = true;
           }
       }
       return ExisteUsuarioAutorizado;
   }
-
-
-
-
 }
 
 
