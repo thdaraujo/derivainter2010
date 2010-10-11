@@ -1,0 +1,62 @@
+body { background-color: #DDDDDD; font: 12px sans-serif; }
+
+h1{
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 130%;
+}
+
+.campoLogin { 
+  border: solid 2px black;
+  width: 400px;
+  margin: 6px 3px 6px 3px;
+  padding: 4px;
+  background-color: #ff;
+  margin: 0 auto;
+  text-align: center;
+}
+
+a.linkSimples{
+  font: 10px sans-serif; 
+  color: red;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input {
+    border: 1px solid #006;
+    background: #ffd;
+}
+
+.inputDate{
+    border: 1px solid #006;
+    background: #ffd;
+    width: 50px
+}
+
+
+.input:hover {
+    border: 1px solid #f00;
+    background: #ff6;
+}
+.button {
+    border: none;   
+    padding: 2px 8px;
+}
+.button:hover {
+    border: none;    
+    padding: 2px 8px;
+}
+label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
+}
+br { clear: left; }
+
+.errorCode{
+  font: 12px sans-serif;
+  color: red;  
+}

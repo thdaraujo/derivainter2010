@@ -11,20 +11,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <style type="text/css" media="screen">
+            @import url("/css/site.css");
+        </style>
+
         <title>Login</title>
     </head>
-    <body><center>
-        <h1>LOGIN</h1>
+    <body>
+        <center><h1>Deriva</h1></center>
+        <!-- formulário de login -->
+        <div class="campoLogin">
+            <h1>Entre com seus dados:</h1>
+            <form method="post" action="SignIn">
+                <p><label>Usuario:</label> <input type="text" name="usuario" class="input" maxlength="255" /></p>
+                <p><label>Senha:</label> <input type="password" name="senha" class="input" maxlength="50"/></p>
+                    <p><input type="submit" value="Sign In" class="button" /></p>
+                    <div class="errorCode">
+                            <%@include file="errorcode.jspf" %>
+                    </div>
+            </form>
+        </div>
+        <center><a href="cadastro.jsp" class="linkSimples">Novo por aqui? Cadastre-se!</a></center>
 
-		<!-- formulário de login -->
-		Entre com seus dados:
-		<form method="post" action="SignIn">
-			Usuario: <input type="text" name="usuario" /><br/>
-			Senha: <input type="password" name="senha" /><br/>
-			<input type="submit" value="Sign In" />
-			<%@include file="errorcode.jspf" %>
-		</form>
-        <a href="cadastro.jsp">Novo por aqui? Cadastre-se</a>
-    </center>
-    </body>
+</body>
 </html>

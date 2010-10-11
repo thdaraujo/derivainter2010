@@ -13,7 +13,6 @@ public class SignOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		//String usuario = (String) session.getAttribute("usuario");
 
 		/* finaliza sessão */
 		session.invalidate();

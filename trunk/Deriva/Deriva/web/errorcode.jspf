@@ -8,7 +8,7 @@
 				Usuário ou senha não conferem
 			</c:when>
 			<c:when test="${requestScope.errorCode == 2}">
-				??
+				Cadastro efetuado com sucesso!
 			</c:when>
 			<c:otherwise>
 				?
