@@ -13,31 +13,22 @@
         <title>Lista de Usuarios</title>
     </head>
     <body>
-
+        <h1>Lista de Usuarios</h1>
             <%
-                userDAO dao = DAOFactory.getUserDAO();
-                
-                List<Usuario> lista = dao.ListarUsuarios();            
-            
-                if (lista != null){
+                userDAO dao = DAOFactory.getUserDAO();                
+                List<Usuario> lista = null;
+
+                lista = dao.ListarUsuarios();
+                  if (lista != null){
                     for (Usuario usr : lista) {
-                        if (usr.getImagemPerfil() != null && usr.getNickname() != null){
+                        if (usr.getImagemPerfil() != null && usr.getNickname() != null && usr.getEmail() != null){
                     %>
-                             <table>
-                                   <tr>
-                                    <td>
-                                        <img src="<%= usr.getImagemPerfil().toString() %>
-                                    </td>
-                                    <td>
-                                        <%= usr.getNickname().toString() %>
-                                    </td>
-                                </tr>
-                             </table>
+                            <p><img src="<%= usr.getImagemPerfil() %>">
+                                <%= usr.getNickname() %>
+                                <<%= usr.getEmail() %></p>
             <%           }
                     }
                 }%>
-
-
 
 
 
