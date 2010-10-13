@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" docBase="E:\Users\HAL\Desktop\Deriva\Deriva\build\web" path="">
-  <Resource auth="Container" driverClassName="org.postgresql.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/testeps" password="tucaooacut" type="javax.sql.DataSource" url="jdbc:postgresql://tucao.homeip.net/test" username="postgres"/>
-  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/dslab2" password="123" type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=Deriva;user=Deriva;"/>
-</Context>
