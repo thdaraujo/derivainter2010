@@ -18,26 +18,35 @@ import javax.servlet.http.HttpSession;
 public class Cadastra extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    throws ServletException, IOException{
        
 		/* obtém parâmetros do request */
         String usuario = request.getParameter("email");
         String senha = request.getParameter("senha");
+        String nickname = request.getParameter("nickname");
         String nome = request.getParameter("nome");
         String sobrenome = request.getParameter("sobrenome");
+        
+        char sexo = ' ';
+        if (request.getParameter("sexo") != null){
+            String sex = request.getParameter("sexo");            
+            sexo = sex.charAt(0);
+        }
+
+        String mensagemPessoal = request.getParameter("mensagemPessoal");
+        String imagemPerfil = request.getParameter("imagemPerfil");
         String strAno = request.getParameter("ano");
         String strMes = request.getParameter("mes");
         String strDia = request.getParameter("dia");
         java.sql.Date datanasc = null;
         datanasc = new java.sql.Date((Integer.parseInt(strAno) - 1900), Integer.parseInt(strMes), Integer.parseInt(strDia));
-        
 
-		/* verifica autenticação */
+	/* verifica autenticação */
         if (usuario != null && senha != null && nome != null && sobrenome != null && datanasc != null) {
             userDAO dao1 = DAOFactory.getUserDAO();
-            Usuario user = new Usuario(usuario, senha, nome, sobrenome, datanasc);
+            Usuario user = new Usuario(usuario, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, datanasc);
             try {
-                dao1.cadastra(user);
+                dao1.Cadastrar(user);
             } catch (SQLException ex) {
                 Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
             }

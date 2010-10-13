@@ -6,22 +6,22 @@ import java.sql.Date;
 
 public class Usuario {
     private int idusuario;
-    private String email, senha, nome, sobrenome, nickname, mensagempessoal;
+    private String email, senha, nome, sobrenome, nickname, mensagemPessoal;
     private char sexo;
     private String imagemPerfil;
      private Date dtnasc;
 
-//    public Usuario(String email, String senha, String nome, String sobrenome, String nickname, String mensagempessoal, char sexo, String imagemPerfil, Date dtnasc) {
-//        this.email = email;
-//        this.senha = senha;
-//        this.nome = nome;
-//        this.sobrenome = sobrenome;
-//        this.nickname = nickname;
-//        this.mensagempessoal = mensagempessoal;
-//        this.sexo = sexo;
-//        this.imagemPerfil = imagemPerfil;
-//        this.dtnasc = dtnasc;
-//    }
+    public Usuario(String email, String senha, String nome, String sobrenome, String nickname, String mensagemPessoal, char sexo, String imagemPerfil, Date dtnasc) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nickname = nickname;
+        this.mensagemPessoal = mensagemPessoal;
+        this.sexo = sexo;
+        this.imagemPerfil = imagemPerfil;
+        this.dtnasc = dtnasc;
+    }
 
     public Usuario(){
     }
@@ -31,14 +31,21 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String email, String senha, String nome, String sobrenome, Date dtnasc) {
+    public Usuario (int idusuario, String email, String senha, String nickname){
+        this.idusuario = idusuario;
         this.email = email;
         this.senha = senha;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.dtnasc = dtnasc;
+        this.nickname = nickname;
     }
-    
+
+    public int getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
     public Date getDtnasc() {
         return dtnasc;
     }
@@ -87,12 +94,12 @@ public class Usuario {
         this.imagemPerfil = imagemPerfil;
     }
 
-    public String getMensagempessoal() {
-        return mensagempessoal;
+    public String getmensagemPessoal() {
+        return mensagemPessoal;
     }
 
-    public void setMensagempessoal(String mensagempessoal) {
-        this.mensagempessoal = mensagempessoal;
+    public void setmensagemPessoal(String mensagemPessoal) {
+        this.mensagemPessoal = mensagemPessoal;
     }
 
     public String getNickname() {
