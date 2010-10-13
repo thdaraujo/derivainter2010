@@ -359,7 +359,7 @@ public class userDAO {
      * @return
      */
     public List<Usuario> ListarUsuarios(){
-       List<Usuario> listaUsuarios = null;
+       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
        Usuario u = null;
        Connection conn = null;
        PreparedStatement ps = null;
