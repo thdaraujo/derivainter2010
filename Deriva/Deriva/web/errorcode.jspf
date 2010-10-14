@@ -10,6 +10,12 @@
 			<c:when test="${requestScope.errorCode == 2}">
 				Cadastro efetuado com sucesso!
 			</c:when>
+            <c:when test="${requestScope.errorCode == 3}">
+				e-mail inválido
+			</c:when>
+            <c:when test="${requestScope.errorCode == 4}">
+				Senhas não conferem
+			</c:when>
 			<c:otherwise>
 				?
 			</c:otherwise>

@@ -34,6 +34,7 @@ public class SignIn extends HttpServlet {
 
             /* verifica autenticação */
         if (usuario != null && senha != null && login(usuario, senha)) {
+
             /* cria uma sessão e adiciona o login do usuário */
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
