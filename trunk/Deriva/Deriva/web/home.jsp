@@ -32,33 +32,102 @@
     else response.sendRedirect("index.jsp");
   %>
 
-<html>
+  <html lang="pt">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <style type="text/css" media="screen">
-            @import url("/css/site.css");
-        </style>
-        <title>Home</title>
+        <meta charset="utf-8" />
+        <title>Deriva - Home</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" type="text/css" href="scripts/iehacks.css" />
+        <![endif]-->
 
+        <!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" href="scripts/ie67hacks.css" />
+        <![endif]-->
     </head>
+
     <body>
-        <h1>Bem vindo, <%= usuario%>!</h1>
-        <p><a href="SignOut" class="linkSimples">Sign out</a></p>
+        <div>
+            &nbsp;
+        </div>
+        <header>
+                <div id="logo">
+                        <a href="#"><img src="images/logo.gif" alt="Logo" /></a>
+                        <!--<hgroup>
+                                <h1>Deriva</h1>
+                                <h2>Rede Social</h2>
+                        </hgroup>-->
+                </div>
+                <nav>
+                        <ul>
+                                <li><a href="/home.jsp">home</a></li>
+                                <li><a href="/cadastro.jsp">cadastro</a></li>
+                                <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
+                                <li><a href="#">123</a></li>
+                                <li><a href="#">123</a></li>
+                                <li><a href="#">123t</a></li>
+                        </ul>
+                </nav>
+        </header>
 
-        <div class="navigation">
-            <ul id="nav">
-            <li><a href="#nowhere" title="Lorum ipsum dolor sit amet">Lorem</a></li>
-            <li><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
-            <li><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
-            <li><a href="#nowhere" title="Praesent dapibus, neque id cursus faucibus">Praesent</a></li>
-            <li><a href="#nowhere" title="Pellentesque fermentum dolor">Pellentesque</a></li>
-            </ul>
+        <div id="content">
+                <section class="hfeed">
+                        <article class="hentry">
+                                <hgroup>
+                                        <h2 class="entry-title"><a href="/home.jsp">Bem Vindo, <%= usuario %>!</a></h2>
+                                        <h3>Posted by <a class="author" href="#">Johnny</a> on <abbr class="updated published" title="20100228T15:08:00">February 28th</a></time></h3>
+                                </hgroup>
+                                <p class="entry-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat hendrerit ante ut sagittis. Fusce blandit interdum tellus, non ornare massa luctus id. Proin lectus libero, dignissim sit amet dignissim in, facilisis sit amet tellus. Aenean sed felis a justo ultrices facilisis. Sed vehicula sagittis consequat. Donec iaculis lacinia augue eu aliquam. Vestibulum aliquet erat quis felis venenatis a ullamcorper diam semper. Donec vel neque quis sem fermentum tincidunt ac in mi. Pellentesque auctor consectetur justo, eu fermentum urna volutpat sit amet. Suspendisse lacus tellus, porta sed condimentum et, elementum vel diam. Donec at massa neque. Sed lobortis feugiat metus, tincidunt dignissim quam convallis sed.</p>
+                                <footer><a href="#">Comment on this (5)</a>&emsp;&bull;&emsp;<a href="#">Tweet this</a>&emsp;&bull;&emsp;<a href="#">Stumble Upon</a></footer>
+                                <br /><hr /><br />
+                        </article>
+                        <article class="hentry">
+                                <hgroup>
+                                        <h2 class="entry-title"><a href="#">The Title</a></h2>
+                                        <h3>Posted by <a class="author" href="#">Johnny</a> on <abbr class="updated published" title="20100228T15:08:00">February 28th</a></time></h3>
+                                </hgroup>
+                                <p class="entry-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat hendrerit ante ut sagittis. Fusce blandit interdum tellus, non ornare massa luctus id. Proin lectus libero, dignissim sit amet dignissim in, facilisis sit amet tellus. Aenean sed felis a justo ultrices facilisis. Sed vehicula sagittis consequat. Donec iaculis lacinia augue eu aliquam. Vestibulum aliquet erat quis felis venenatis a ullamcorper diam semper. Donec vel neque quis sem fermentum tincidunt ac in mi. Pellentesque auctor consectetur justo, eu fermentum urna volutpat sit amet. Suspendisse lacus tellus, porta sed condimentum et, elementum vel diam. Donec at massa neque. Sed lobortis feugiat metus, tincidunt dignissim quam convallis sed.</p>
+                                <footer><a href="#">Comment on this (5)</a>&emsp;&bull;&emsp;<a href="#">Tweet this</a>&emsp;&bull;&emsp;<a href="#">Stumble Upon</a></footer>
+                                <br /><hr /><br />
+                        </article>
+                        <article class="hentry">
+                                <hgroup>
+                                        <h2 class="entry-title"><a href="#">The Title</a></h2>
+                                        <h3>Posted by <a class="author" href="#">Johnny</a> on <abbr class="updated published" title="20100228T15:08:00">February 28th</a></time></h3>
+                                </hgroup>
+                                <p class="entry-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat hendrerit ante ut sagittis. Fusce blandit interdum tellus, non ornare massa luctus id. Proin lectus libero, dignissim sit amet dignissim in, facilisis sit amet tellus. Aenean sed felis a justo ultrices facilisis. Sed vehicula sagittis consequat. Donec iaculis lacinia augue eu aliquam. Vestibulum aliquet erat quis felis venenatis a ullamcorper diam semper. Donec vel neque quis sem fermentum tincidunt ac in mi. Pellentesque auctor consectetur justo, eu fermentum urna volutpat sit amet. Suspendisse lacus tellus, porta sed condimentum et, elementum vel diam. Donec at massa neque. Sed lobortis feugiat metus, tincidunt dignissim quam convallis sed.</p>
+                                <footer><a href="#">Comment on this (5)</a>&emsp;&bull;&emsp;<a href="#">Tweet this</a>&emsp;&bull;&emsp;<a href="#">Stumble Upon</a></footer>
+                                <br /><hr /><br />
+                        </article>
+                </section>
+                <aside>
+
+                        <h2>Contatos</h2>
+                        <ul>
+                                <li><a href="#">contato 1</a></li>
+                                <li><a href="#">contato 2</a></li>
+                                <li><a href="#">contato 3</a></li>
+                        </ul>
+                        <br />
+                        <h2>Comunidades</h2>
+                        <ul>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                        </ul>
+                        <br />
+                </aside>
         </div>
 
-        <div class="content">
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-        </div>
+        <footer id="main-footer">
+                <section id="footer-1">
+                        Deriva &copy; 2010
+                </section>
+                <section id="footer-2">
 
-
+                </section>
+        </footer>
     </body>
 </html>
