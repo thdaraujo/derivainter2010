@@ -187,17 +187,29 @@ public class userDAO {
         try {
             conn = connectionFactory.getConnection();
 
-            ps = conn.prepareStatement("select idusuario, email, senha, nickname from Usuario where email = ?");
+            ps = conn.prepareStatement("select idusuario, email, senha, nickname, nome, sobrenome, sexo, mensagemPessoal, imagemPerfil, dtnasc from Usuario where email = ?");
             ps.setString(1, Email);
             rs = ps.executeQuery();
 
             if (rs.next()) {
                 int idusuario = rs.getInt("idusuario");
                 String email = rs.getString("email");
-                String senha = rs.getString("senha");
                 String nickname = rs.getString("nickname");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
 
-                u = new Usuario(idusuario, email, senha, nickname);
+                char sexo = '\0';
+                if (rs.getString("sexo") != null) {
+                    sexo = rs.getString("sexo").charAt(0);
+
+
+                }
+                String mensagemPessoal = rs.getString("mensagemPessoal");
+                String imagemPerfil = rs.getString("imagemPerfil");
+                Date dtnasc = rs.getDate("dtnasc");
+                String senha = rs.getString("senha");
+
+                u = new Usuario(email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
             }
         } catch (SQLException ex) {
             LOG.log(Level.SEVERE, null, ex);

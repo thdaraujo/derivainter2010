@@ -23,6 +23,8 @@ public class Cadastra extends HttpServlet {
 		/* obtém parâmetros do request */
         String usuario = request.getParameter("email");
         String senha = request.getParameter("senha");
+        String senha2 = request.getParameter("senha2");
+
         String nickname = request.getParameter("nickname");
         String nome = request.getParameter("nome");
         String sobrenome = request.getParameter("sobrenome");
@@ -39,9 +41,26 @@ public class Cadastra extends HttpServlet {
         String strMes = request.getParameter("mes");
         String strDia = request.getParameter("dia");
         java.sql.Date datanasc = null;
-        datanasc = new java.sql.Date((Integer.parseInt(strAno) - 1900), Integer.parseInt(strMes), Integer.parseInt(strDia));
+        if(!(strAno.equals("")) && (strMes.equals("")) && strDia.equals("")){
+            datanasc = new java.sql.Date((Integer.parseInt(strAno) - 1900), Integer.parseInt(strMes), Integer.parseInt(strDia));
+        }
 
-	/* verifica autenticação */
+
+        if (!usuario.contains("@")){
+            request.setAttribute("errorCode", 3);
+             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+        if(!senha.equals(senha2)){
+            request.setAttribute("errorCode", 4);
+             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
+
+        /* verifica autenticação */
         if (usuario != null && senha != null && nome != null && sobrenome != null && datanasc != null) {
             userDAO dao1 = DAOFactory.getUserDAO();
             Usuario user = new Usuario(usuario, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, datanasc);
@@ -68,12 +87,13 @@ public class Cadastra extends HttpServlet {
            response.addCookie(ckSenha);
            response.addCookie(ckNome);
 
-	    /* redireciona (client-side) */
-	    response.sendRedirect("/home.jsp");
-	}
+        /* redireciona (client-side) */
+        response.sendRedirect("/home.jsp");
+        }
+	
         else {
             /* define código de erro */
-            request.setAttribute("errorCode", 1);
+            request.setAttribute("errorCode", 2);
 
             /* redireciona (server-side) */
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");

@@ -3,6 +3,12 @@
 
 <%@page import="java.util.List"%>
 
+
+<%
+        LoadCampos();
+
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,7 +26,7 @@
         <center><h1>Deriva</h1></center>
         <div class="campoLogin">
             <center> <h1>Cadastre-se!</h1></center>
-            <form method="post" action="Cadastra">
+            <form method="post" action="EditarPerfil">
                 <p><label>E-Mail:</label> <input name="email" type="text" class="input" maxlength="255">
                 <p><label>Senha:</label> <input name="senha" type="password" class="input"  maxlength="10">
                     <p><label>Digite a senha novamente:</label> <input name="senha2" type="password" class="input"  maxlength="10">
@@ -31,7 +37,7 @@
                 <p><label>Mensagem Pessoal:</label> <input name="mensagemPessoal" type="text" class="input" maxlength="1000">
                 <p><label>Imagem para o Perfil:</label> <input name="imagemPerfil" type="text" class="input"  maxlength="100">
                 <p><label>Ano de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
-                <p><input type="submit" value="Enviar" class="button" accesskey="Enter"></p>
+                <p><input type="submit" value="Enviar" onclick="<% %>"  class="button" accesskey="Enter"></p>
                <div class="errorCode">
                    <%@include file="errorcode.jspf" %>
                </div>
