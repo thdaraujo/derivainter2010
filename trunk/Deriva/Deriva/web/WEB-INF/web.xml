@@ -21,6 +21,14 @@
         <servlet-name>Cadastra</servlet-name>
         <servlet-class>deriva.app.Cadastra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarPerfil</servlet-name>
+        <servlet-class>deriva.app.EditarPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SalvarPerfil</servlet-name>
+        <servlet-class>deriva.app.SalvarPerfil</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -40,6 +48,14 @@
     <servlet-mapping>
         <servlet-name>Cadastra</servlet-name>
         <url-pattern>/Cadastra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarPerfil</servlet-name>
+        <url-pattern>/EditarPerfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalvarPerfil</servlet-name>
+        <url-pattern>/SalvarPerfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
