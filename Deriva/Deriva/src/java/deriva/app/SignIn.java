@@ -5,6 +5,7 @@ import deriva.db.userDAO;
 import deriva.neg.Autorizacao;
 import deriva.neg.Usuario;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -14,14 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class SignIn extends HttpServlet {
-
+    private Usuario usersession;
 
     private boolean login(String usuario, String senha) {
        userDAO dao1 = DAOFactory.getUserDAO();
        Usuario user = new Usuario(usuario, senha);
        Autorizacao aut = null;
        aut = new Autorizacao(user);
-       if (aut != null) return aut.IsLogado();
+       try{
+            /* cria uma sessão e adiciona o usuário */
+       usersession = aut.getUsuarioSession();
+       }catch (Exception e){}
+
+       if (aut != null && usersession != null) return aut.IsLogado();
        else return false;
     }
 
@@ -29,18 +35,15 @@ public class SignIn extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 		/* obtém parâmetros do request */
+
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
             /* verifica autenticação */
         if (usuario != null && senha != null && login(usuario, senha)) {
 
-            /* cria uma sessão e adiciona o login do usuário */
-            HttpSession session = request.getSession();
-            session.setAttribute("usuario", usuario);
-            session.setAttribute("senha", senha);
-           //session.setAttribute("nome", teria que consultar o nome do cara...); //TODO
-
+           
+           
             Cookie ckEmail = new Cookie("email", usuario);
             Cookie ckSenha = new Cookie("senha", senha);
             //Cookie ckNome = new Cookie("nome", TODO);

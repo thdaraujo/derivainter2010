@@ -25,7 +25,21 @@ public class Usuario {
 
     public Usuario(){
     }
-    
+
+
+    public Usuario(int id, String email, String senha, String nome, String sobrenome, String nickname, String mensagemPessoal, char sexo, String imagemPerfil, Date dtnasc) {
+        this.idusuario = id;
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nickname = nickname;
+        this.mensagemPessoal = mensagemPessoal;
+        this.sexo = sexo;
+        this.imagemPerfil = imagemPerfil;
+        this.dtnasc = dtnasc;
+    }
+
     public Usuario(String email, String senha){
         this.email = email;
         this.senha = senha;

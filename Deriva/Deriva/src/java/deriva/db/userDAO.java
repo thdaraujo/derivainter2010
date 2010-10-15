@@ -339,7 +339,7 @@ public class userDAO {
                 Date dtnasc = rs.getDate("dtnasc");
                 String senha = rs.getString("senha");
 
-                u = new Usuario(email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                u = new Usuario(idusuario, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
             }
         } catch (SQLException ex) {
             LOG.log(Level.SEVERE, null, ex);
@@ -518,9 +518,56 @@ public class userDAO {
                 }
             }
         } else {
-            throw new Exception("email ou senha não podem ser nulos!");
+           
         }
     }
+    
+    public void UpdatePerfil(Usuario usuario) throws Exception {
+     
+
+            try {
+                conn = connectionFactory.getConnection();
+
+                StringBuilder sb = new StringBuilder();
+
+                //Constroi a string que vai se tornar a query de update
+                sb.append("UPDATE Usuario \n");
+                sb.append("SET ");
+                sb.append("nickname = ?");
+                sb.append(",mensagemPessoal = ?");
+                sb.append(",imagemPerfil = ?");
+                sb.append("WHERE idusuario = ?;");
+
+                ps = conn.prepareStatement(sb.toString());
+
+                ps.setString(1, usuario.getNickname());
+                ps.setString(2, usuario.getmensagemPessoal());
+                ps.setString(3, usuario.getImagemPerfil());
+                //WHERE idusuario = ?
+                ps.setInt(4, usuario.getIdusuario());
+                ps.executeUpdate();
+
+            } catch (SQLException ex) {
+                LOG.log(Level.SEVERE, null, ex);
+                throw ex;
+            } finally {
+                if (ps != null) {
+                    try {
+                        ps.close();
+                    } catch (SQLException e) {
+                    }
+                }
+                if (conn != null) {
+                    try {
+                        conn.close();
+                    } catch (SQLException e) {
+                    }
+                }
+            }    
+             
+    }
+
+
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="DELETE">

@@ -2,6 +2,7 @@ package deriva.neg;
 
 import deriva.db.DAOFactory;
 import deriva.db.userDAO;
+import java.sql.SQLException;
 
 /** Maneja autorização de acesso.
  *
@@ -39,6 +40,12 @@ public class Autorizacao {
       }
       return ExisteUsuarioAutorizado;
   }
+
+    public Usuario getUsuarioSession() throws SQLException {
+        Usuario u = null;
+        u = dao.FindLoginByEmail(this.usuario.getEmail());
+        return u;
+    }
 }
 
 
