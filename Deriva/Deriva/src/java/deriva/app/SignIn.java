@@ -36,38 +36,20 @@ public class SignIn extends HttpServlet {
     throws ServletException, IOException {
 		/* obtém parâmetros do request */
 
+        HttpSession session = request.getSession(true);
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
             /* verifica autenticação */
         if (usuario != null && senha != null && login(usuario, senha)) {
-
+            if (usersession != null) session.setAttribute("usuario", usersession);
            
-           
-            Cookie ckEmail = new Cookie("email", usuario);
-            Cookie ckSenha = new Cookie("senha", senha);
-            //Cookie ckNome = new Cookie("nome", TODO);
-
-           // Expira em 1 dia.
-           ckEmail.setMaxAge(60*60*24);
-           ckSenha.setMaxAge(60*60*24);
-          //ckNome.setMaxAge(60*60*24);
-
-           response.addCookie(ckEmail);
-           response.addCookie(ckSenha);
-           //response.addCookie(ckNome);
-
             /* redireciona (client-side) */
             response.sendRedirect("home.jsp");
-
-//               /* redireciona (server-side) */
-//               RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
-//                dispatcher.forward(request, response);
             return;
         } else {
                 /* define código de erro */
                 request.setAttribute("errorCode", 1);
-
                 /* redireciona (server-side) */
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);

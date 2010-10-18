@@ -19,7 +19,9 @@ public class Cadastra extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException{
-       
+
+        String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        String imagemRegex = "http://";
 		/* obtém parâmetros do request */
         String usuario = request.getParameter("email");
         String senha = request.getParameter("senha");
@@ -46,14 +48,20 @@ public class Cadastra extends HttpServlet {
         }
 
 
-        if (!usuario.contains("@")){
+        if (!usuario.matches(emailRegex)){
             request.setAttribute("errorCode", 3);
-             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
             dispatcher.forward(request, response);
             return;
         }
         if(!senha.equals(senha2)){
             request.setAttribute("errorCode", 4);
+             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+        if(!imagemPerfil.matches(imagemRegex)){
+            request.setAttribute("errorCode", 5);
              RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
             dispatcher.forward(request, response);
             return;
@@ -70,25 +78,10 @@ public class Cadastra extends HttpServlet {
                 Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            //se nao houver session, cria uma nova.
-            AdicionarSession(usuario, nome, senha, request.getSession(true));
-
-            // cria cookies
-            Cookie ckEmail = new Cookie("email", usuario);
-            Cookie ckSenha = new Cookie("senha", senha);
-            Cookie ckNome = new Cookie("nome", nome);
-
-           // Expiram em 1 dia.
-           ckEmail.setMaxAge(60*60*24);
-           ckSenha.setMaxAge(60*60*24);
-           ckNome.setMaxAge(60*60*24);
-
-           response.addCookie(ckEmail);
-           response.addCookie(ckSenha);
-           response.addCookie(ckNome);
-
-        /* redireciona (client-side) */
-        response.sendRedirect("/home.jsp");
+            //se nao houver session, cria uma nova e adiciona o usuario.
+            AdicionarSession(user, request.getSession(true));
+            /* redireciona (client-side) */
+            response.sendRedirect("/home.jsp");
         }
 	
         else {
@@ -114,11 +107,10 @@ public class Cadastra extends HttpServlet {
     }
 
 
-    public void AdicionarSession(String usuario, String senha, String nome, HttpSession session){
-        /* cria uma sessão e adiciona o login do usuário */
-       if (session != null){
-            session.setAttribute("usuario", usuario);
-            session.setAttribute("senha", senha);
+    public void AdicionarSession(Usuario usuario, HttpSession session){
+        /* cria uma sessão e adiciona o usuário */
+       if (session != null && usuario != null){
+            session.setAttribute("usuario", usuario);            
        }
     }
 }

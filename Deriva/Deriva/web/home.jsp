@@ -1,37 +1,39 @@
-<%@page import="java.util.List"%>
+
 <%--<%@page import="br.senac.sp.bcc.lab2.Storage"%>--%>
 <%@page import="deriva.neg.Autorizacao" %>
 <%@page import="deriva.neg.Usuario" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+  <%  session = request.getSession();
+    Usuario usuario = null;
+    String ola = "usuário";
+    String mensagemPessoal = "escreva uma mensagem pessoal!";
 
-<%  session = request.getSession();
-    String senha = "";
-    String usuario = "";
 
-    if (session != null && session.getAttribute("usuario") != null &&
-            session.getAttribute("senha") != null){
-            senha = session.getAttribute("senha").toString();
-            usuario = session.getAttribute("usuario").toString();
+    if (session != null && session.getAttribute("usuario") != null){
+            usuario = (Usuario) session.getAttribute("usuario");
 
-        if (usuario.isEmpty() || senha.isEmpty()){
+        if (usuario == null || usuario.getSenha() == null || usuario.getEmail() == null
+                    || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()){
             response.sendRedirect("index.jsp");
             return;
         }
         else{
-            Usuario u = new Usuario(usuario, senha);
-            Autorizacao aut = new Autorizacao(u);
-             if (!aut.PossuiAutorizacao(usuario, senha)){
+            Autorizacao aut = new Autorizacao(usuario);
+             if (!aut.PossuiAutorizacao(usuario.getEmail(), usuario.getSenha())){
                 response.sendRedirect("index.jsp");
                 return;
             }
         }
+            if (usuario.getNickname() != null && !usuario.getNickname().isEmpty()) ola = usuario.getNickname();
+            if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
+            if (usuario.getmensagemPessoal() != null && !usuario.getmensagemPessoal().isEmpty()) mensagemPessoal = usuario.getmensagemPessoal();
     }
     else response.sendRedirect("index.jsp");
   %>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
   <html lang="pt">
     <head>
         <meta charset="utf-8" />
@@ -53,7 +55,7 @@
         </div>
         <header>
                 <div id="logo">
-                        <a href="#"><img src="images/logo.gif" alt="Logo" /></a>
+                        <a href="/home.jsp"><img src="images/logo.gif" alt="Logo" /></a>
                         <!--<hgroup>
                                 <h1>Deriva</h1>
                                 <h2>Rede Social</h2>
@@ -61,10 +63,10 @@
                 </div>
                 <nav>
                         <ul>
-                                <li><a href="/home.jsp">home</a></li>
-                                <li><a href="/cadastro.jsp">cadastro</a></li>
+                                <li><a href="/home.jsp">Home</a></li>
+                                <li><a href="/cadastro.jsp">Cadastro</a></li>
                                 <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
-                                <li><a href="#">123</a></li>
+                                <li><a href="/editarPerfil.jsp">Editar Perfil</a></li>
                                 <li><a href="#">123</a></li>
                                 <li><a href="#">123t</a></li>
                         </ul>
@@ -75,10 +77,10 @@
                 <section class="hfeed">
                         <article class="hentry">
                                 <hgroup>
-                                        <h2 class="entry-title"><a href="/home.jsp">Bem Vindo, <%= usuario %>!</a></h2>
-                                        <h3>Posted by <a class="author" href="#">Johnny</a> on <abbr class="updated published" title="20100228T15:08:00">February 28th</a></time></h3>
+                                        <h2 class="entry-title"><a href="/home.jsp">Bem Vindo, <%= ola %>!</a></h2>
+                                        <h3> <a class="author" href="#"> <%= usuario.getEmail() %></a> </h3>
                                 </hgroup>
-                                <p class="entry-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat hendrerit ante ut sagittis. Fusce blandit interdum tellus, non ornare massa luctus id. Proin lectus libero, dignissim sit amet dignissim in, facilisis sit amet tellus. Aenean sed felis a justo ultrices facilisis. Sed vehicula sagittis consequat. Donec iaculis lacinia augue eu aliquam. Vestibulum aliquet erat quis felis venenatis a ullamcorper diam semper. Donec vel neque quis sem fermentum tincidunt ac in mi. Pellentesque auctor consectetur justo, eu fermentum urna volutpat sit amet. Suspendisse lacus tellus, porta sed condimentum et, elementum vel diam. Donec at massa neque. Sed lobortis feugiat metus, tincidunt dignissim quam convallis sed.</p>
+                                <p class="entry-summary"> <%= mensagemPessoal %>  </p>
                                 <footer><a href="#">Comment on this (5)</a>&emsp;&bull;&emsp;<a href="#">Tweet this</a>&emsp;&bull;&emsp;<a href="#">Stumble Upon</a></footer>
                                 <br /><hr /><br />
                         </article>
