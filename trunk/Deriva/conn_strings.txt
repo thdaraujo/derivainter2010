@@ -1,0 +1,42 @@
+  Connection Strings:
+  
+  local com autorização do windows:
+  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+  maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/dslab2"
+  type="javax.sql.DataSource" url="jdbc:sqlserver://localhost;databaseName=Deriva;integratedSecurity=true;"/>
+  
+  local com autorização sql:
+  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+  maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/dslab2" password="123"
+  type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=Deriva;user=Deriva;"/>
+  
+  servidor web remoto:
+    <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+  maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/dslab2" password="campeao123"
+  type="javax.sql.DataSource" url="jdbc:sqlserver://174.37.19.98:25000;databaseName=DB1380_Inter2010;user=DB1380_Inter2010;"/>
+  
+  
+  session authorization handling:  
+  
+  <%  session = request.getSession();
+    Usuario usuario = null;
+   
+
+    if (session != null && session.getAttribute("usuario") != null){
+            usuario = requestScope.usuario;     
+
+        if (usuario == null || usuario.getSenha() == null || usuario.getEmail() == null
+                    || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()){
+            response.sendRedirect("index.jsp");
+            return;
+        }
+        else{           
+            Autorizacao aut = new Autorizacao(usuario);
+             if (!aut.PossuiAutorizacao(usuario.getEmail(), usuario.getSenha())){
+                response.sendRedirect("index.jsp");
+                return;
+            }
+        }
+    }
+    else response.sendRedirect("index.jsp");
+  %>
