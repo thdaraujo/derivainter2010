@@ -21,7 +21,7 @@ public class Cadastra extends HttpServlet {
     throws ServletException, IOException{
 
         String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-        String imagemRegex = "http://";
+        
 		/* obtém parâmetros do request */
         String usuario = request.getParameter("email");
         String senha = request.getParameter("senha");
@@ -59,13 +59,7 @@ public class Cadastra extends HttpServlet {
              RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
             dispatcher.forward(request, response);
             return;
-        }
-        if(!imagemPerfil.matches(imagemRegex)){
-            request.setAttribute("errorCode", 5);
-             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cadastro.jsp");
-            dispatcher.forward(request, response);
-            return;
-        }
+        }       
 
 
         /* verifica autenticação */
