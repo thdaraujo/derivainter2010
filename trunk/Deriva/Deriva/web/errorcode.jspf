@@ -15,10 +15,7 @@
 			</c:when>
             <c:when test="${requestScope.errorCode == 4}">
 				Senhas não conferem!
-			</c:when>
-            <c:when test="${requestScope.errorCode == 5}">
-				Imagem deve ser um link!
-			</c:when>
+			</c:when>           
 			<c:otherwise>
 				?
 			</c:otherwise>
