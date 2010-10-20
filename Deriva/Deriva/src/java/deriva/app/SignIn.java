@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSession;
 public class SignIn extends HttpServlet {
     private Usuario usersession;
 
-    private boolean login(String usuario, String senha) {
-       userDAO dao1 = DAOFactory.getUserDAO();
+    private boolean login(String usuario, String senha) {      
        Usuario user = new Usuario(usuario, senha);
        Autorizacao aut = null;
        aut = new Autorizacao(user);
