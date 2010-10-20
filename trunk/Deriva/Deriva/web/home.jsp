@@ -7,6 +7,9 @@
     Usuario usuario = null;
     String ola = "usuário";
     String mensagemPessoal = "escreva uma mensagem pessoal!";
+    String pathImage = application.getContextPath()+ "/images/";
+
+    String imagemPerfil = pathImage + "logo.gif";
 
 
     if (session != null && session.getAttribute("usuario") != null){
@@ -27,6 +30,11 @@
             if (usuario.getNickname() != null && !usuario.getNickname().isEmpty()) ola = usuario.getNickname();
             if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
             if (usuario.getmensagemPessoal() != null && !usuario.getmensagemPessoal().isEmpty()) mensagemPessoal = usuario.getmensagemPessoal();
+            if (usuario.getImagemPerfil() != null && usuario.getImagemPerfil().isEmpty()){
+                //imagem vem da pasta images se não vier da web (se não for um caminho de imagem, não vai conter / no nome)
+                if (!usuario.getImagemPerfil().contains("/"))
+                    imagemPerfil = pathImage + usuario.getImagemPerfil();
+            }
     }
     else response.sendRedirect("index.jsp");
   %>
@@ -80,6 +88,7 @@
                                         <h2 class="entry-title"><a href="/home.jsp">Bem Vindo, <%= ola %>!</a></h2>
                                         <h3> <a class="author" href="#"> <%= usuario.getEmail() %></a> </h3>
                                 </hgroup>
+                                <img src="<%=imagemPerfil %>" class="imagemPerfil">
                                 <p class="entry-summary"> <%= mensagemPessoal %>  </p>
                                 <footer><a href="#">Comment on this (5)</a>&emsp;&bull;&emsp;<a href="#">Tweet this</a>&emsp;&bull;&emsp;<a href="#">Stumble Upon</a></footer>
                                 <br /><hr /><br />

@@ -35,8 +35,6 @@ public class SalvarPerfil extends HttpServlet {
         if (nickname != null && session != null) {
             try{
             user = (Usuario) session.getAttribute("usuario");
-
-
             user.setNickname(nickname);
             user.setmensagemPessoal(mensagemPessoal);
             user.setImagemPerfil(imagemPerfil);

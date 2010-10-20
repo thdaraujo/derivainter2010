@@ -20,7 +20,7 @@
         <div class="campoLogin">
             <center> <h1>Editar perfil</h1></center>
             <form method="post" action="SalvarPerfil">
-                <p><label >E-Mail:</label> ${requestScope.usuario.email}
+                <p><label >E-Mail:</label> <label >${requestScope.usuario.email}</label>
          <!--       <p><label>Senha:</label> <input name="senha" type="password" class="input"  maxlength="10">-->
          <!--       <p><label>Digite a senha novamente:</label> <input name="senha2" type="password" class="input"  maxlength="10">-->
                 <p><label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10" value="${requestScope.usuario.nickname}">

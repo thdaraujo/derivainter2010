@@ -49,23 +49,13 @@ public class EditarPerfil extends HttpServlet {
          HttpSession session = request.getSession();
 
         if (session != null) {
-            String email = (String) session.getAttribute("usuario");
-            Usuario usuario = null;
-            if (email != null && !email.isEmpty()) {
-                userDAO dao = DAOFactory.getUserDAO();
-                try {
-                    usuario = dao.FindLoginByEmail(email);
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) {
+                try {                    
                     if (usuario != null) {
-                        request.setAttribute("usuario", usuario);
-                        /*
-                        request.setAttribute("nickname", usuario.getNickname());
-                        request.setAttribute("senha", usuario.getSenha());
-                        request.setAttribute("senha2", "");
-                        request.setAttribute("mensagemPessoal", usuario.getmensagemPessoal());
-                        request.setAttribute("imagemPerfil", usuario.getImagemPerfil());
-                         */
+                        request.setAttribute("usuario", usuario);                       
                     }
-                } catch (SQLException ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
