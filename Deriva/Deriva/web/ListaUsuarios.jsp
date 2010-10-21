@@ -39,7 +39,7 @@
                                 <li><a href="/home.jsp">home</a></li>
                                 <li><a href="/cadastro.jsp">cadastro</a></li>
                                 <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
-                                <li><a href="#">123</a></li>
+                                <li><a href="/EditarPerfil">Editar Perfil</a></li>
                                 <li><a href="#">123</a></li>
                                 <li><a href="#">123t</a></li>
                         </ul>

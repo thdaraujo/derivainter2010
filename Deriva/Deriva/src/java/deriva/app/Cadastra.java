@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,11 +67,15 @@ public class Cadastra extends HttpServlet {
             Usuario user = new Usuario(usuario, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, datanasc);
             try {
                 dao1.Cadastrar(user);
+                user = dao1.FindUsuarioByEmail(user.getEmail());
             } catch (SQLException ex) {
                 Logger.getLogger(Cadastra.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             //se nao houver session, cria uma nova e adiciona o usuario.
+
+            int id = user.getIdusuario();
+
             AdicionarSession(user, request.getSession(true));
             /* redireciona (client-side) */
             response.sendRedirect("/home.jsp");

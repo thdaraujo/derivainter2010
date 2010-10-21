@@ -6,10 +6,15 @@ import java.sql.Date;
 
 public class Usuario {
     private int idusuario;
-    private String email, senha, nome, sobrenome, nickname, mensagemPessoal;
+    private String email;
+    private String senha;
+    private String nome;
+    private String sobrenome;
+    private String nickname;
+    private String mensagemPessoal;
     private char sexo;
     private String imagemPerfil;
-     private Date dtnasc;
+    private Date dtnasc;
 
     public Usuario(String email, String senha, String nome, String sobrenome, String nickname, String mensagemPessoal, char sexo, String imagemPerfil, Date dtnasc) {
         this.email = email;
@@ -26,9 +31,8 @@ public class Usuario {
     public Usuario(){
     }
 
-
-    public Usuario(int id, String email, String senha, String nome, String sobrenome, String nickname, String mensagemPessoal, char sexo, String imagemPerfil, Date dtnasc) {
-        this.idusuario = id;
+    public Usuario(int idusuario, String email, String senha, String nome, String sobrenome, String nickname, String mensagemPessoal, char sexo, String imagemPerfil, Date dtnasc) {
+        this.idusuario = idusuario;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
@@ -38,14 +42,14 @@ public class Usuario {
         this.sexo = sexo;
         this.imagemPerfil = imagemPerfil;
         this.dtnasc = dtnasc;
-    }
+    }  
 
     public Usuario(String email, String senha){
         this.email = email;
         this.senha = senha;
     }
 
-    public Usuario (int idusuario, String email, String senha, String nickname){
+    public Usuario(int idusuario, String email, String senha, String nickname){
         this.idusuario = idusuario;
         this.email = email;
         this.senha = senha;

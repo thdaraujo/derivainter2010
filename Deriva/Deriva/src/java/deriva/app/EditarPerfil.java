@@ -34,16 +34,7 @@ public class EditarPerfil extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
             processRequest(request, response);
-    }
-
-
-    public void AdicionarSession(String usuario, String senha, String nome, HttpSession session){
-        /* cria uma sessão e adiciona o login do usuário */
-       if (session != null){
-            session.setAttribute("usuario", usuario);
-            session.setAttribute("senha", senha);
-       }
-    }
+    }   
 
     public void loadCampos(HttpServletRequest request) {
          HttpSession session = request.getSession();
