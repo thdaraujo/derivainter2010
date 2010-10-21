@@ -1,9 +1,7 @@
 package deriva.db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,13 +9,6 @@ import javax.sql.DataSource;
 
 
 public class SimpleConnectionFactory implements ConnectionFactory {
-
-	static {
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-		} catch (ClassNotFoundException e) { }
-	}
 
 	private static final String DEFAULT_DS_NAME = "jdbc/dslab2";
 

@@ -15,10 +15,12 @@ public class SignOut extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		/* finaliza sessão */
-		session.invalidate();
-
+        if (session != null)
+            session.invalidate();
+        
 		/* redireciona (client-side) */
-		response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/"));
+		//response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + ""));
+        response.sendRedirect("index.jsp");
     } 
 
     @Override
