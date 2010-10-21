@@ -2,6 +2,35 @@
 <%@page import="deriva.db.userDAO"%>
 <%@page import="deriva.db.DAOFactory"%>
 <%@page import="deriva.neg.Usuario"%>
+<%@page import="deriva.neg.Autorizacao" %>
+<%@page import="deriva.neg.Usuario" %>
+
+  <%  session = request.getSession();
+    Usuario usuario = null;
+
+    if (session != null && session.getAttribute("usuario") != null){
+            usuario = (Usuario) session.getAttribute("usuario");
+
+        if (usuario == null || usuario.getSenha() == null || usuario.getEmail() == null
+                    || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()){
+            response.sendRedirect("index.jsp");
+            return;
+        }
+        else{
+            Autorizacao aut = new Autorizacao(usuario);
+             if (!aut.PossuiAutorizacao(usuario.getEmail(), usuario.getSenha())){
+                response.sendRedirect("index.jsp");
+                return;
+            }
+        }           
+    }
+    else{
+        response.sendRedirect("index.jsp");
+        return;
+    }
+  %>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -36,11 +65,10 @@
                 </div>
                 <nav>
                         <ul>
-                                <li><a href="/home.jsp">home</a></li>
-                                <li><a href="/cadastro.jsp">cadastro</a></li>
+                                <li><a href="/home.jsp">home</a></li>                                
                                 <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
                                 <li><a href="/EditarPerfil">Editar Perfil</a></li>
-                                <li><a href="#">123</a></li>
+                                <li><a href="/SignOut">Logout</a></li>
                                 <li><a href="#">123t</a></li>
                         </ul>
                 </nav>

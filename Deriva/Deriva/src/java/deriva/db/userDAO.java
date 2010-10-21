@@ -530,17 +530,14 @@ public class userDAO {
             try {
                 conn = connectionFactory.getConnection();
 
-                StringBuilder sb = new StringBuilder();
+                final String query = "UPDATE Usuario " +
+                        "SET " +
+                        "nickname = ?, " +
+                        "mensagemPessoal = ?, " +
+                        "imagemPerfil = ? " +
+                        "WHERE idusuario = ?";
 
-                //Constroi a string que vai se tornar a query de update
-                sb.append("UPDATE Usuario \n");
-                sb.append("SET ");
-                sb.append("nickname = ?");
-                sb.append(",mensagemPessoal = ?");
-                sb.append(",imagemPerfil = ?");
-                sb.append("WHERE idusuario = ?;");
-
-                ps = conn.prepareStatement(sb.toString());
+                ps = conn.prepareStatement(query);
 
                 ps.setString(1, usuario.getNickname());
                 ps.setString(2, usuario.getmensagemPessoal());

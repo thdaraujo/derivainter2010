@@ -28,7 +28,7 @@
             }
         }
             if (usuario.getNickname() != null && !usuario.getNickname().isEmpty()) ola = usuario.getNickname();
-            if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
+            else if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
             if (usuario.getmensagemPessoal() != null && !usuario.getmensagemPessoal().isEmpty()) mensagemPessoal = usuario.getmensagemPessoal();
             if (usuario.getImagemPerfil() != null && usuario.getImagemPerfil().isEmpty()){
                 //imagem vem da pasta images se não vier da web (se não for um caminho de imagem, não vai conter / no nome)
@@ -36,7 +36,10 @@
                     imagemPerfil = pathImage + usuario.getImagemPerfil();
             }
     }
-    else response.sendRedirect("index.jsp");
+    else{
+        response.sendRedirect("index.jsp");
+        return;
+    }
   %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -71,11 +74,10 @@
                 </div>
                 <nav>
                         <ul>
-                                <li><a href="/home.jsp">Home</a></li>
-                                <li><a href="/cadastro.jsp">Cadastro</a></li>
+                                <li><a href="/home.jsp">Home</a></li>                                
                                 <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
                                 <li><a href="/EditarPerfil">Editar Perfil</a></li>
-                                <li><a href="#">123</a></li>
+                                <li><a href="/SignOut">Logout</a></li>
                                 <li><a href="#">123t</a></li>
                         </ul>
                 </nav>
