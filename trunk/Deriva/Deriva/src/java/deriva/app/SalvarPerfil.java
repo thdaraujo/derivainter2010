@@ -19,12 +19,6 @@ public class SalvarPerfil extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
-		/* obtém parâmetros do request */
-
-  //      String senha = request.getParameter("senha");
-    //    String senha2 = request.getParameter("senha2");
-
         String nickname = request.getParameter("nickname");
         String mensagemPessoal = request.getParameter("mensagemPessoal");
         String imagemPerfil = request.getParameter("imagemPerfil");

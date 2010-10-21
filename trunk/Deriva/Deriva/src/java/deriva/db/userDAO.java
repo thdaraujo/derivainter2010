@@ -194,11 +194,13 @@ public class userDAO {
             if (rs.next()) {
                 int idusuario = rs.getInt("idusuario");
                 String email = rs.getString("email");
+                String senha = rs.getString("senha");
                 String nickname = rs.getString("nickname");
                 String nome = rs.getString("nome");
                 String sobrenome = rs.getString("sobrenome");
 
-                char sexo = '\0';
+
+                char sexo = ' ';
                 if (rs.getString("sexo") != null) {
                     sexo = rs.getString("sexo").charAt(0);
 
@@ -206,10 +208,10 @@ public class userDAO {
                 }
                 String mensagemPessoal = rs.getString("mensagemPessoal");
                 String imagemPerfil = rs.getString("imagemPerfil");
-                Date dtnasc = rs.getDate("dtnasc");
-                String senha = rs.getString("senha");
+                Date dtnasc = rs.getDate("dtnasc");                
 
-                u = new Usuario(email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                u = new Usuario(idusuario, email, nome, senha, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                u.setIdusuario(idusuario);
             }
         } catch (SQLException ex) {
             LOG.log(Level.SEVERE, null, ex);
@@ -274,7 +276,7 @@ public class userDAO {
                 Date dtnasc = rs.getDate("dtnasc");
                 String senha = rs.getString("senha");
 
-                u = new Usuario(email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                u = new Usuario(idusuario, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
             }
         } catch (SQLException ex) {
             LOG.log(Level.SEVERE, null, ex);
@@ -399,7 +401,7 @@ public class userDAO {
                 Date dtnasc = rs.getDate("dtnasc");
                 String senha = rs.getString("senha");
 
-                u = new Usuario(email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                u = new Usuario(idusuario, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
                 listaUsuarios.add(u);
             }
             return listaUsuarios;
