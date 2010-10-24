@@ -30,10 +30,11 @@
             if (usuario.getNickname() != null && !usuario.getNickname().isEmpty()) ola = usuario.getNickname();
             else if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
             if (usuario.getmensagemPessoal() != null && !usuario.getmensagemPessoal().isEmpty()) mensagemPessoal = usuario.getmensagemPessoal();
-            if (usuario.getImagemPerfil() != null && usuario.getImagemPerfil().isEmpty()){
+            if (usuario.getImagemPerfil() != null && !usuario.getImagemPerfil().isEmpty()){
                 //imagem vem da pasta images se não vier da web (se não for um caminho de imagem, não vai conter / no nome)
                 if (!usuario.getImagemPerfil().contains("/"))
                     imagemPerfil = pathImage + usuario.getImagemPerfil();
+                else imagemPerfil = usuario.getImagemPerfil();
             }
     }
     else{
