@@ -42,7 +42,7 @@ public class Cadastra extends HttpServlet {
         String strMes = request.getParameter("mes");
         String strDia = request.getParameter("dia");
         java.sql.Date datanasc = null;
-        if(!(strAno.equals("")) && (strMes.equals("")) && strDia.equals("")){
+        if(!strAno.equals("") && !strMes.equals("") && !strDia.equals("")){
             datanasc = new java.sql.Date((Integer.parseInt(strAno) - 1900), Integer.parseInt(strMes), Integer.parseInt(strDia));
         }
 
