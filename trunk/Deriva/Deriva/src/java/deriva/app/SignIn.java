@@ -34,7 +34,6 @@ public class SignIn extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 		/* obtém parâmetros do request */
-
         HttpSession session = request.getSession(true);
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");

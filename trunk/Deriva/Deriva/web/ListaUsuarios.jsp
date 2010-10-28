@@ -1,36 +1,15 @@
 <%@page import="java.util.List"%>
 <%@page import="deriva.db.userDAO"%>
 <%@page import="deriva.db.DAOFactory"%>
+<%@page import="deriva.app.AutorizacaoApp" %>
 <%@page import="deriva.neg.Usuario"%>
 <%@page import="deriva.neg.Autorizacao" %>
 <%@page import="deriva.neg.Usuario" %>
 
-  <%  session = request.getSession();
-    Usuario usuario = null;
-
-    if (session != null && session.getAttribute("usuario") != null){
-            usuario = (Usuario) session.getAttribute("usuario");
-
-        if (usuario == null || usuario.getSenha() == null || usuario.getEmail() == null
-                    || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()){
-            response.sendRedirect("index.jsp");
-            return;
-        }
-        else{
-            Autorizacao aut = new Autorizacao(usuario);
-             if (!aut.PossuiAutorizacao(usuario.getEmail(), usuario.getSenha())){
-                response.sendRedirect("index.jsp");
-                return;
-            }
-        }           
-    }
-    else{
-        response.sendRedirect("index.jsp");
+<%
+    if (!AutorizacaoApp.autoriza(request, response))
         return;
-    }
-  %>
-
-
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -88,12 +67,14 @@
                                                 %>
                                                 
                                                 <article class="hentry">
+                                                        <a href="mostraPerfil?id=<%= usr.getIdusuario() %>">
                                                         <hgroup>
                                                              <h3 class="entry-title"><a href="#"><img src="<%= usr.getImagemPerfil() %>">
                                                             <%= usr.getNickname() %>
                                                             <%= usr.getEmail() %></a></h3>
                                                         </hgroup>
-                                                        <p class="entry-summary"><%= usr.getmensagemPessoal() %></p>                                                         
+                                                        <p class="entry-summary"><%= usr.getmensagemPessoal() %></p>
+                                                        </a>
                                                         <footer></footer>
                                                         <br /><hr /><br />
                                                 </article>
