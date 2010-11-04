@@ -1,15 +1,15 @@
-<%@page import="java.util.List"%>
-<%@page import="deriva.db.userDAO"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="deriva.db.DAOFactory"%>
 <%@page import="deriva.app.AutorizacaoApp" %>
 <%@page import="deriva.neg.Usuario"%>
 <%@page import="deriva.neg.Autorizacao" %>
-<%@page import="deriva.neg.Usuario" %>
+<%@page import="deriva.app.ListaUsuario" %>
 
 <%
     if (!AutorizacaoApp.autoriza(request, response))
         return;
 %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -56,18 +56,10 @@
         <div id="content">
                 <section class="hfeed">                        
                                     <h2>Lista de Usuarios</h2>
-                                        <%
-                                            userDAO dao = DAOFactory.getUserDAO();
-                                            List<Usuario> lista = null;
-
-                                            lista = dao.ListarUsuarios();
-                                              if (lista != null){
-                                                for (Usuario usr : lista) {
-                                                    if (usr.getImagemPerfil() != null && usr.getNickname() != null && usr.getEmail() != null){
-                                                %>
+                                    <c:forEach var="usr" items="${requestScope.lista.listaUsuario}">
                                                 
                                                 <article class="hentry">
-                                                        <a href="mostraPerfil?id=<%= usr.getIdusuario() %>">
+                                                        <a href="mostraPerfil?id=${usr.idusuario()}">
                                                         <hgroup>
                                                              <a href="#"><img src="<%= usr.getImagemPerfil() %>">
                                                             <h3 class="entry-title"><%= usr.getNickname() %></h3>
@@ -78,9 +70,10 @@
                                                         <footer></footer>
                                                         <br /><hr /><br />
                                                 </article>
-                                        <%           }
-                                                }
-                                            }%>
+                                       </c:forEach>
+                                       <c:if test="">
+                                           <a href="">prox</a>
+                                       </c:if>
                                 
                      </section>
                 <aside>
