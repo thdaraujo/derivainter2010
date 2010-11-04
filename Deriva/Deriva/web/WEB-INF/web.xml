@@ -29,6 +29,10 @@
         <servlet-name>SalvarPerfil</servlet-name>
         <servlet-class>deriva.app.SalvarPerfil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaUsuarios</servlet-name>
+        <servlet-class>deriva.app.ListaUsuarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -56,6 +60,10 @@
     <servlet-mapping>
         <servlet-name>SalvarPerfil</servlet-name>
         <url-pattern>/SalvarPerfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaUsuarios</servlet-name>
+        <url-pattern>/ListaUsuarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
