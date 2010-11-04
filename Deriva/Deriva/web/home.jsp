@@ -1,9 +1,16 @@
 
-<%--<%@page import="br.senac.sp.bcc.lab2.Storage"%>--%>
 <%@page import="deriva.neg.Autorizacao" %>
 <%@page import="deriva.neg.Usuario" %>
+<%@page import="deriva.app.AutorizacaoApp" %>
 
-  <%  session = request.getSession();
+<%
+    if (!AutorizacaoApp.autoriza(request, response))
+        return;
+%>
+
+
+  <%
+    session = request.getSession();
     Usuario usuario = null;
     String ola = "usuário";
     String mensagemPessoal = "escreva uma mensagem pessoal!";
@@ -11,22 +18,10 @@
 
     String imagemPerfil = pathImage + "logo.gif";
 
-
     if (session != null && session.getAttribute("usuario") != null){
-            usuario = (Usuario) session.getAttribute("usuario");
-
-        if (usuario == null || usuario.getSenha() == null || usuario.getEmail() == null
-                    || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()){
-            response.sendRedirect("index.jsp");
-            return;
-        }
-        else{
-            Autorizacao aut = new Autorizacao(usuario);
-             if (!aut.PossuiAutorizacao(usuario.getEmail(), usuario.getSenha())){
-                response.sendRedirect("index.jsp");
-                return;
-            }
-        }
+            usuario = (Usuario) session.getAttribute("usuario");       
+       
+        
             if (usuario.getNickname() != null && !usuario.getNickname().isEmpty()) ola = usuario.getNickname();
             else if (usuario.getEmail() != null && !usuario.getEmail().isEmpty()) ola = usuario.getEmail();
             if (usuario.getmensagemPessoal() != null && !usuario.getmensagemPessoal().isEmpty()) mensagemPessoal = usuario.getmensagemPessoal();
@@ -36,11 +31,7 @@
                     imagemPerfil = pathImage + usuario.getImagemPerfil();
                 else imagemPerfil = usuario.getImagemPerfil();
             }
-    }
-    else{
-        response.sendRedirect("index.jsp");
-        return;
-    }
+    }    
   %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

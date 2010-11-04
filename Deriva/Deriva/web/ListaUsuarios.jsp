@@ -69,9 +69,9 @@
                                                 <article class="hentry">
                                                         <a href="mostraPerfil?id=<%= usr.getIdusuario() %>">
                                                         <hgroup>
-                                                             <h3 class="entry-title"><a href="#"><img src="<%= usr.getImagemPerfil() %>">
-                                                            <%= usr.getNickname() %>
-                                                            <%= usr.getEmail() %></a></h3>
+                                                             <a href="#"><img src="<%= usr.getImagemPerfil() %>">
+                                                            <h3 class="entry-title"><%= usr.getNickname() %></h3>
+                                                            <%= usr.getEmail() %></a>
                                                         </hgroup>
                                                         <p class="entry-summary"><%= usr.getmensagemPessoal() %></p>
                                                         </a>

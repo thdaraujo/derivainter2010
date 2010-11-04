@@ -188,4 +188,32 @@ hr {
 	float: right;
 }
 
+.campoLogin {
+  border: solid 2px black;
+  width: 400px;
+  margin: 6px 3px 6px 3px;
+  padding: 4px;
+  background-color: #ff;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input {
+    border: 1px solid #006;
+    background: #ffd;
+}
+
+label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
+}
+br { clear: left; }
+
+.errorCode{
+  font: 12px sans-serif;
+  color: red;
+}
 
