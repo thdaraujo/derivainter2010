@@ -29,17 +29,28 @@ public class ListaUsuarios extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int pag;
+        
+        String pag = request.getParameter("pagina");
+        int pageNumber = 0;
+        try{
+            pageNumber = Integer.parseInt(pag);
+        }catch (Exception e){}
+        
+        //anti-usuario engraçadinho
+        if (pageNumber < 0) pageNumber = 0;
 
-        request.getParameter("pag"); // ...
+        ListaUsuarioFacade luf = new ListaUsuarioFacade();
 
-        ListaUsuarioOld x = new ListaUsuarioOld();
+        luf.busca(pageNumber);
+        List<Usuario> listaPaginada = luf.getListaUsuario();
 
-        x.busca(1 /* TODO */);
+        request.setAttribute("listaPaginada", listaPaginada);
+        request.setAttribute("hasNext", luf.getHasNext());
+        request.setAttribute("hasPrevious", luf.getHasPrevious());
+        request.setAttribute("numeroPagina", pageNumber);
 
-        request.setAttribute("lista", x);
-
-        getServletContext().getRequestDispatcher("ListaUsuarios.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/ListaUsuarios.jsp").forward(request, response);
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="Métodos HttpServlet. Clique no sinal de + à esquerda para editar o código.">

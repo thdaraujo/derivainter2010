@@ -3,7 +3,7 @@
 <%@page import="deriva.app.AutorizacaoApp" %>
 <%@page import="deriva.neg.Usuario"%>
 <%@page import="deriva.neg.Autorizacao" %>
-<%@page import="deriva.app.ListaUsuario" %>
+<%@page import="deriva.app.ListaUsuarios"%>
 
 <%
     if (!AutorizacaoApp.autoriza(request, response))
@@ -45,7 +45,7 @@
                 <nav>
                         <ul>
                                 <li><a href="/home.jsp">home</a></li>                                
-                                <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
+                                <li><a href="/ListaUsuarios">Lista de Usuarios</a></li>
                                 <li><a href="/EditarPerfil">Editar Perfil</a></li>
                                 <li><a href="/SignOut">Logout</a></li>
                                 <li><a href="#">123t</a></li>
@@ -55,25 +55,38 @@
 
         <div id="content">
                 <section class="hfeed">                        
-                                    <h2>Lista de Usuarios</h2>
-                                    <c:forEach var="usr" items="${requestScope.lista.listaUsuario}">
-                                                
+                                    <h2>Lista de Usuarios</h2>                                
+                                    <p>
+                                         <c:if test="${requestScope.hasPrevious == true}">
+                                               <a href="/ListaUsuarios?pagina=${requestScope.numeroPagina - 1}"><h4>< anterior</h4></a>
+                                           </c:if>
+                                           <c:if test="${requestScope.hasNext == true}">
+                                               <a href="/ListaUsuarios?pagina=${requestScope.numeroPagina + 1}"><h4> proxima > </h4></a>
+                                           </c:if>                                          
+                                    </p>
+
+                                    <c:forEach var="usr" items="${requestScope.listaPaginada}">                                                
                                                 <article class="hentry">
-                                                        <a href="mostraPerfil?id=${usr.idusuario()}">
+                                                        <a href="mostraPerfil?id=${usr.idusuario}">
                                                         <hgroup>
-                                                             <a href="#"><img src="<%= usr.getImagemPerfil() %>">
-                                                            <h3 class="entry-title"><%= usr.getNickname() %></h3>
-                                                            <%= usr.getEmail() %></a>
+                                                             <a href="#"><img src="${usr.imagemPerfil}">
+                                                            <h3 class="entry-title">${usr.nickname}</h3>
+                                                            ${usr.email}</a>
                                                         </hgroup>
-                                                        <p class="entry-summary"><%= usr.getmensagemPessoal() %></p>
+                                                        <p class="entry-summary">${usr.mensagemPessoal}</p>
                                                         </a>
                                                         <footer></footer>
                                                         <br /><hr /><br />
                                                 </article>
                                        </c:forEach>
-                                       <c:if test="">
-                                           <a href="">prox</a>
+                                    <p>
+                                        <c:if test="${requestScope.hasPrevious == true}">
+                                           <a href="/ListaUsuarios?pagina=${requestScope.numeroPagina - 1}"><h4>< anterior</h4></a>
                                        </c:if>
+                                       <c:if test="${requestScope.hasNext == true}">
+                                           <a href="/ListaUsuarios?pagina=${requestScope.numeroPagina + 1}"><h4>proxima ></h4></a>
+                                       </c:if>                                       
+                                    </p>
                                 
                      </section>
                 <aside>

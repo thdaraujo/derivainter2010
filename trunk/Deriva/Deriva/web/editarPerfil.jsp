@@ -48,7 +48,7 @@
                 <nav>
                         <ul>
                                 <li><a href="/home.jsp">Home</a></li>
-                                <li><a href="/ListaUsuarios.jsp">Lista de Usuarios</a></li>
+                                <li><a href="/ListaUsuarios">Lista de Usuarios</a></li>
                                 <li><a href="/EditarPerfil">Editar Perfil</a></li>
                                 <li><a href="/SignOut">Logout</a></li>
                                 <li><a href="#">123t</a></li>
