@@ -9,9 +9,19 @@ $(document).ready(function(){
 		$('#box').bounceBoxToggle();
 		e.preventDefault();
 	});
-	
+        
 	/* When the box is clicked, hide it: */
-	$('#box').click(function(){
+	$('#botao').click(function(){
 		$('#box').bounceBoxHide();
-	});
+            });
+
+        $('body').bind('teste', function(){
+            alert('fuck')
+        });
+       
+
+//        $(window).unload(function(){
+//            $('#box').bounceBoxHide();
+//	});
+        
 });
