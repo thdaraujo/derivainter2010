@@ -1,20 +1,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>       
 
 <c:if test="${not empty requestScope.errorCode}">
 	<p class="error">
 		<c:choose>
-			<c:when test="${requestScope.errorCode == 1}">
-				Usuário ou senha não conferem!
+			<c:when test="${requestScope.errorCode == 1}">				
+                                poikhgfdcx
+                                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js">
+                                    $('body').trigger('teste');
+                                </script>
 			</c:when>
 			<c:when test="${requestScope.errorCode == 2}">
 				Cadastro efetuado com sucesso!
 			</c:when>
             <c:when test="${requestScope.errorCode == 3}">
-				e-mail inválido!
+				e-mail inválido!                                
 			</c:when>
             <c:when test="${requestScope.errorCode == 4}">
-				Senhas não conferem!
+				Senhas não conferem!                                
 			</c:when>           
 			<c:otherwise>
 				?

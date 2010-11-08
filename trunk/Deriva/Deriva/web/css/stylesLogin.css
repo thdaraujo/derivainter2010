@@ -121,3 +121,8 @@ a, a:visited {
 a:hover{
 	text-decoration:underline;
 }
+
+.errorCode{
+  font: 10px sans-serif;
+  color: red;
+}
