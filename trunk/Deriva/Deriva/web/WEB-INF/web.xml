@@ -33,6 +33,10 @@
         <servlet-name>ListaUsuarios</servlet-name>
         <servlet-class>deriva.app.ListaUsuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SalvaTripulante</servlet-name>
+        <servlet-class>deriva.app.SalvaTripulante</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>ListaUsuarios</servlet-name>
         <url-pattern>/ListaUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalvaTripulante</servlet-name>
+        <url-pattern>/SalvaTripulante</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

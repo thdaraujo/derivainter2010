@@ -92,6 +92,46 @@ public class userDAO {
             System.out.println("email ou senha não podem ser nulos!");
         }
     }
+
+    /**
+     * Cadastra amigo na entidade RelAmigo
+     * @param idusuario = id do usuario
+     * @param idamigo = id do usuario amigo
+     */
+    public void cadastrarAmigo(int idusuario, int idamigo) throws SQLException {
+
+        if (idusuario > 0 && idamigo > 0) {
+            try {
+                conn = connectionFactory.getConnection();
+                ps = conn.prepareStatement("INSERT INTO RelAmigo ([idusuario] ,[idamigo])" +
+                        " VALUES (?, ?);");
+                
+                ps.setInt(1, idusuario);
+                ps.setInt(2, idamigo);
+                ps.executeUpdate();
+
+            } catch (SQLException ex) {
+                LOG.log(Level.SEVERE, null, ex);
+                throw ex;
+            } finally {
+                if (ps != null) {
+                    try {
+                        ps.close();
+                    } catch (SQLException e) {
+                    }
+                }
+                if (conn != null) {
+                    try {
+                        conn.close();
+                    } catch (SQLException e) {
+                    }
+                }
+            }
+        } else {
+            System.out.println("ids invalidos!");
+        }
+    }
+
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="SELECT">
@@ -683,7 +723,7 @@ public class userDAO {
                 }
             }
         }
-    }    
+    }
 
 // </editor-fold>
 
