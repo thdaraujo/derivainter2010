@@ -36,7 +36,7 @@ public class SalvaTripulante extends HttpServlet {
         
        if (dao == null) dao = DAOFactory.getUserDAO();
        HttpSession session = request.getSession();
-       Usuario usuario = (Usuario) session.getAttribute("Usuario");
+       Usuario usuario = (Usuario) session.getAttribute("usuario");
        
        if (usuario != null){
            int idusuario = usuario.getIdusuario();
