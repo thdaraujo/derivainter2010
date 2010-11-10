@@ -38,22 +38,7 @@
             &nbsp;
         </div>
         <header>
-                <div id="logo">
-                        <a href="/home.jsp"><img src="images/logo.gif" alt="Logo" /></a>
-                        <!--<hgroup>
-                                <h1>Deriva</h1>
-                                <h2>Rede Social</h2>
-                        </hgroup>-->
-                </div>
-                <nav>
-                        <ul>
-                                <li><a href="/home.jsp">Home</a></li>
-                                <li><a href="/ListaUsuarios">Lista de Usuarios</a></li>
-                                <li><a href="/EditarPerfil">Editar Perfil</a></li>
-                                <li><a href="/SignOut">Logout</a></li>
-                                <li><a href="#">123t</a></li>
-                        </ul>
-                </nav>
+              <%@ include file="Controles/Topo.html" %>
         </header>
         <div id="content">
                 <section class="hfeed">
@@ -78,22 +63,7 @@
                 </section>
 
                 <aside>
-
-                        <h2>Contatos</h2>
-                        <ul>
-                                <li><a href="#">contato 1</a></li>
-                                <li><a href="#">contato 2</a></li>
-                                <li><a href="#">contato 3</a></li>
-                        </ul>
-                        <br />
-                        <h2>Comunidades</h2>
-                        <ul>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                        </ul>
-                        <br />
+                    <%@ include file="Controles/BarraTripulantes.jsp" %>
                 </aside>
         </div>
 
@@ -102,7 +72,6 @@
                         Deriva &copy; 2010
                 </section>
                 <section id="footer-2">
-
                 </section>
         </footer>
     </body>
