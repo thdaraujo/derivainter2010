@@ -16,7 +16,7 @@ body{
 
 #box{
 	background:url('../images/box_bg.jpg') repeat-x center top #fcfcfc;
-	height:115px;
+	height:125px;
 	padding:20px;
 	margin-top:-10px;
 	padding-top:30px;
@@ -37,6 +37,25 @@ body{
 	font-size:52px;
 	display:block;
 }
+
+#box label{
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 1px;
+    text-align: right;
+    padding: 0 10px;    
+}
+
+#box errorCode{
+    color:red;
+    display:block;
+    font-size:26px;
+    left:54%;
+    position:absolute;
+    top:31%;
+}
+
 
 #box,
 #main,
@@ -122,7 +141,33 @@ a:hover{
 	text-decoration:underline;
 }
 
-.errorCode{
+/*.errorCode{
   font: 10px sans-serif;
   color: red;
+}*/
+
+#botao {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background-color:#59AADA;
+    background-image:-moz-linear-gradient(#5EB2E2, #4F9CCA);
+    border:1px solid #60B4E5;
+    color:white;
+    display:block;
+    font-family:'Myriad Pro',Arial,Helvetica,sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:-1px;
+    position: relative;
+    margin:auto 30% 30%;
+    padding:2px;
+    text-align:center;
+    text-shadow:1px 1px 0 #145982;
+    width:200px;    
+}
+#botao:hover{
+	background-color: #5eb2e2;
+	background-image: -moz-linear-gradient(#6bbbe9, #57a5d4);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6bbbe9), to(#57a5d4));
 }
