@@ -1,3 +1,4 @@
+<%@page import="deriva.app.BarraTripulantes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,6 +16,18 @@
                 <li><a href="#">contato 3</a></li>
         </ul>
         <br />
+        
+        <ul>
+            <c:forEach var="usr" items="${requestScope.listaAmigos}">
+                <li><a href="mostraPerfil?id=${usr.idusuario}">
+                        <img src="${usr.imagemPerfil}">
+                        <h3 class="entry-title">${usr.nickname}</h3>
+                    </a>
+                </li>
+           </c:forEach>
+       </ul>
+       <br />
+
         <%--
         <h2>Comunidades</h2>
         <ul>

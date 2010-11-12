@@ -553,6 +553,68 @@ public class userDAO {
         return null;
     }
 
+    public List<Usuario> listarAmigos(int idusuario){
+        List<Usuario> listaAmigos = new ArrayList<Usuario>();
+
+       Usuario u = null;
+       Connection conn = null;
+       PreparedStatement ps = null;
+       ResultSet rs = null;
+
+        try {
+            conn = connectionFactory.getConnection();
+
+            ps = conn.prepareStatement("SELECT Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
+                    " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
+                    " where RelAmigo.idusuario = ?;");
+            ps.setInt(1, idusuario);
+            rs = ps.executeQuery();
+
+             while (rs.next()) {
+                int id = rs.getInt("idusuario");
+                String email = rs.getString("email");
+                String nickname = rs.getString("nickname");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+
+                char sexo = '\0';
+                if (rs.getString("sexo") != null) {
+                    sexo = rs.getString("sexo").charAt(0);
+                }
+                String mensagemPessoal = rs.getString("mensagemPessoal");
+                String imagemPerfil = rs.getString("imagemPerfil");
+                Date dtnasc = rs.getDate("dtnasc");
+                String senha = rs.getString("senha");
+
+                u = new Usuario(id, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                listaAmigos.add(u);
+            }
+            return listaAmigos;
+
+        } catch (SQLException ex) {
+            LOG.log(Level.SEVERE, null, ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) { }
+            }
+        }
+        return null;   
+    }
+
     /**
      * Lista os usuarios segundo uma lista de ids. Útil para quando for preciso listar os usuarios amigos ou
      * cadastrados em uma comunidade.

@@ -37,6 +37,10 @@
         <servlet-name>SalvaTripulante</servlet-name>
         <servlet-class>deriva.app.SalvaTripulante</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BarraTripulantes</servlet-name>
+        <servlet-class>deriva.app.BarraTripulantes</servlet-class>
+        </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -72,6 +76,10 @@
     <servlet-mapping>
         <servlet-name>SalvaTripulante</servlet-name>
         <url-pattern>/SalvaTripulante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BarraTripulantes</servlet-name>
+        <url-pattern>/BarraTripulantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
