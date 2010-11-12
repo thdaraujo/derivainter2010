@@ -38,6 +38,9 @@
 
 
             <div id="main">
+                <b><errorCode>
+                    <%@include file="errorcode.jspf" %>
+                </erorCode></b>
                 <a class="button" href="#">Partir!</a>
                 <p>Clique para entrar no <strong>Deriva</strong>.<br />
                 <h1><a href="cadastro.jsp">Ou preencha sua ficha de embarque! &raquo;</a></h1>
@@ -46,18 +49,13 @@
             <div id="box">
             <p><b>Yarr!</b></p>
             <form method="post" action="SignIn">
-                   <center>
-                        Usuario: <input type="text" name="usuario" class="input" maxlength="255" /><br />
-                        Senha: <input type="password" name="senha" class="input" maxlength="50"/><br />
-                        <input type="submit" value="Sign In" id="botao" />
-                        <div id="errorCode">
+                       <label>Usuario:</label> <input type="text" name="usuario" class="input" maxlength="255" /><br />
+                       <label>Senha: </label> <input type="password" name="senha" class="input" maxlength="50"/><br />                           
+                       <input type="submit" value="Partir!" id="botao" />
+                       <errorCode>
                             <%@include file="errorcode.jspf" %>
-                        </div>
-                    </center>
+                       </erorCode>
                 </form>
             </div>
-
-
-
 </body>
 </html>
