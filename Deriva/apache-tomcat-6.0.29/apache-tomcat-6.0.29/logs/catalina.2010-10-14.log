@@ -1,0 +1,245 @@
+14/10/2010 04:53:32 org.apache.coyote.http11.Http11AprProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+14/10/2010 04:53:32 org.apache.coyote.ajp.AjpAprProtocol pause
+INFO: Pausing Coyote AJP/1.3 on ajp-8009
+14/10/2010 04:53:33 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+14/10/2010 04:53:33 org.apache.coyote.http11.Http11AprProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+14/10/2010 04:53:33 org.apache.coyote.ajp.AjpAprProtocol destroy
+INFO: Stopping Coyote AJP/1.3 on ajp-8009
+14/10/2010 19:12:11 org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Arquivos de programas\Java\jdk1.6.0_02\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Arquivos de programas\Arquivos comuns\Symbian\tools;C:\Ericsson\SDS4.1FD1\icp\windows;C:\Perl\bin\;C:\Perl\bin\;C:\Arquivos de programas\Java\jdk1.6.0_02\jre\bin;c:\oracle\ora92\bin;C:\Arquivos de programas\Oracle\jre\1.3.1\bin;C:\Arquivos de programas\Oracle\jre\1.1.8\bin;c:\prog\ruby\bin;C:\Arquivos de programas\MiKTeX 2.6\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Arquivos de programas\Arquivos comuns\Adobe\AGL;C:\Arquivos de programas\Lectra Systemes\Ghostscript 5.11;C:\Arquivos de programas\Java\jdk1.6.0_02\bin;C:\prog\maven-2.0.7\bin;C:\Arquivos de programas\jEdit;C:\Arquivos de programas\QuickTime\QTSystem\;C:\prog\cygwin\bin;C:\prog\MinGW\bin;C:\prog\lejos\bin;c:\Arquivos de programas\Microsoft SQL Server\90\Tools\binn\;C:\Symbian\UIQ3SDK\epoc32\tools\nokia_compiler\Symbian_Tools\Command_Line_Tools;C:\Arquivos de programas\VoiceAge\Common;C:\Arquivos de programas\Arquivos comuns\Autodesk Shared\;C:\Arquivos de programas\Autodesk\backburner\;C:\Arquivos de programas\Symantec\pcAnywhere\
+14/10/2010 19:12:11 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+14/10/2010 19:12:11 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 948 ms
+14/10/2010 19:12:11 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+14/10/2010 19:12:11 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+14/10/2010 19:12:11 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor host-manager.xml
+14/10/2010 19:12:12 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor manager.xml
+14/10/2010 19:12:13 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:12:13 org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor ROOT.xml
+java.io.IOException: O dispositivo não está pronto
+	at java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.io.Win32FileSystem.canonicalize(Win32FileSystem.java:396)
+	at java.io.File.getCanonicalPath(File.java:559)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:620)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:519)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:581)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+14/10/2010 19:12:13 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+14/10/2010 19:12:13 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+14/10/2010 19:12:14 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+14/10/2010 19:12:14 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+14/10/2010 19:12:14 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/94  config=null
+14/10/2010 19:12:14 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2843 ms
+14/10/2010 19:12:24 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:12:24 org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor ROOT.xml
+java.io.IOException: O dispositivo não está pronto
+	at java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.io.Win32FileSystem.canonicalize(Win32FileSystem.java:396)
+	at java.io.File.getCanonicalPath(File.java:559)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:620)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1345)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:303)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1337)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Thread.java:619)
+14/10/2010 19:12:34 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:12:34 org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor ROOT.xml
+java.io.IOException: O dispositivo não está pronto
+	at java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.io.Win32FileSystem.canonicalize(Win32FileSystem.java:396)
+	at java.io.File.getCanonicalPath(File.java:559)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:620)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1345)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:303)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1337)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+	at java.lang.Thread.run(Thread.java:619)
+14/10/2010 19:12:39 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:12:39 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:15:47 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:15:47 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:15:47 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:18:00 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:18:00 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:18:01 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:19:09 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:19:09 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:19:10 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:21:34 org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated
+14/10/2010 19:21:35 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:21:36 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:21:36 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:25:59 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [] appears to have started a thread named [SeedGenerator Thread] but has failed to stop it. This is very likely to create a memory leak.
+14/10/2010 19:26:00 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:26:01 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:26:01 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:26:55 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:26:55 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:26:55 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:33:16 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:33:16 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:33:17 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:44:12 org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context []
+14/10/2010 19:47:55 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+14/10/2010 19:47:56 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+14/10/2010 19:47:56 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+14/10/2010 19:48:03 org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Arquivos de programas\Java\jdk1.6.0_02\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Arquivos de programas\Arquivos comuns\Symbian\tools;C:\Ericsson\SDS4.1FD1\icp\windows;C:\Perl\bin\;C:\Perl\bin\;C:\Arquivos de programas\Java\jdk1.6.0_02\jre\bin;c:\oracle\ora92\bin;C:\Arquivos de programas\Oracle\jre\1.3.1\bin;C:\Arquivos de programas\Oracle\jre\1.1.8\bin;c:\prog\ruby\bin;C:\Arquivos de programas\MiKTeX 2.6\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Arquivos de programas\Arquivos comuns\Adobe\AGL;C:\Arquivos de programas\Lectra Systemes\Ghostscript 5.11;C:\Arquivos de programas\Java\jdk1.6.0_02\bin;C:\prog\maven-2.0.7\bin;C:\Arquivos de programas\jEdit;C:\Arquivos de programas\QuickTime\QTSystem\;C:\prog\cygwin\bin;C:\prog\MinGW\bin;C:\prog\lejos\bin;c:\Arquivos de programas\Microsoft SQL Server\90\Tools\binn\;C:\Symbian\UIQ3SDK\epoc32\tools\nokia_compiler\Symbian_Tools\Command_Line_Tools;C:\Arquivos de programas\VoiceAge\Common;C:\Arquivos de programas\Arquivos comuns\Autodesk Shared\;C:\Arquivos de programas\Autodesk\backburner\;C:\Arquivos de programas\Symantec\pcAnywhere\
+14/10/2010 19:48:03 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+14/10/2010 19:48:03 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1052 ms
+14/10/2010 19:48:04 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+14/10/2010 19:48:04 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+14/10/2010 19:48:04 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor host-manager.xml
+14/10/2010 19:48:04 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor manager.xml
+14/10/2010 19:48:05 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:48:05 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+14/10/2010 19:48:05 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+14/10/2010 19:48:06 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+14/10/2010 19:48:06 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+14/10/2010 19:48:06 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/94  config=null
+14/10/2010 19:48:06 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2916 ms
+14/10/2010 19:48:08 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:48:08 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:48:09 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:56:37 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [] appears to have started a thread named [SeedGenerator Thread] but has failed to stop it. This is very likely to create a memory leak.
+14/10/2010 19:56:38 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:56:38 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:56:39 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 19:59:18 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 19:59:18 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 19:59:19 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:00:43 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 20:00:43 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 20:00:44 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:02:06 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 20:02:06 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 20:02:07 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:44:24 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 20:44:24 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 20:44:25 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:45:26 org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context []
+14/10/2010 20:55:51 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 20:55:51 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 20:55:52 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:57:34 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+14/10/2010 20:57:35 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+14/10/2010 20:57:35 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+14/10/2010 20:59:05 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+14/10/2010 20:59:06 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+14/10/2010 20:59:06 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
