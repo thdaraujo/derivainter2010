@@ -40,7 +40,7 @@
     <servlet>
         <servlet-name>BarraTripulantes</servlet-name>
         <servlet-class>deriva.app.BarraTripulantes</servlet-class>
-        </servlet>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
