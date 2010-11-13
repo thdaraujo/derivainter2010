@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="deriva.app.BarraTripulantes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -9,16 +10,17 @@
         <title></title>
     </head>
     <body>
-        <h2>Contatos</h2>
+      <!--  <h2>Contatos</h2>
         <ul>
                 <li><a href="#">contato 1</a></li>
                 <li><a href="#">contato 2</a></li>
                 <li><a href="#">contato 3</a></li>
         </ul>
-        <br />
-        
+        <br /> -->
+      
+        <h2>Contatos</h2>
         <ul>
-            <c:forEach var="usr" items="${requestScope.listaAmigos}">
+           <c:forEach var="usr" items="${requestScope.listaAmigos}">
                 <li><a href="mostraPerfil?id=${usr.idusuario}">
                         <img src="${usr.imagemPerfil}">
                         <h3 class="entry-title">${usr.nickname}</h3>

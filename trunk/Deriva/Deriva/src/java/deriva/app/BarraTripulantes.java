@@ -5,6 +5,7 @@
 
 package deriva.app;
 
+import deriva.db.DAOFactory;
 import deriva.db.userDAO;
 import deriva.neg.Usuario;
 import java.io.IOException;
@@ -35,11 +36,11 @@ public class BarraTripulantes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-
+        if (dao == null) dao = DAOFactory.getUserDAO();
         HttpSession session = request.getSession();
-        String usuarioid = request.getParameter("id");
-        
+        String usuarioid = request.getParameter("id");        
         int idusuario = 0;
+
         try{
             idusuario = Integer.parseInt(usuarioid);
         }catch(Exception ex){}        
@@ -49,10 +50,11 @@ public class BarraTripulantes extends HttpServlet {
             idusuario = user.getIdusuario();
         }
         
-        List<Usuario> listaAmigos = dao.listarAmigos(idusuario);  
+        listaAmigos = dao.listarAmigos(idusuario);  
         request.setAttribute("listaAmigos", listaAmigos);
 
-        getServletContext().getRequestDispatcher("/ListaUsuarios.jsp").forward(request, response);
+        //getServletContext().getRequestDispatcher("/Controles/BarraTripulantes.jsp").forward(request, response);
+        //getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="Métodos HttpServlet. Clique no sinal de + à esquerda para editar o código.">

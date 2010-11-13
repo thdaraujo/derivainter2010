@@ -1,4 +1,3 @@
-
 <%@page import="deriva.neg.Autorizacao" %>
 <%@page import="deriva.neg.Usuario" %>
 <%@page import="deriva.app.AutorizacaoApp" %>
@@ -74,7 +73,10 @@
                         </article>                        
                 </section>
                 <aside>
-                    <%@ include file="Controles/BarraTripulantes.jsp" %>
+                    <!-- Gambiware: chamo o servlet e o jsp - deve haver um jeito melhor de executar o servlet E DEPOIS dar
+                         include no conteudo da barra, mas não descobri ainda como. Redirect explode tudo. -->
+                    <jsp:include page="/BarraTripulantes"></jsp:include>
+                    <jsp:include page="/Controles/BarraTripulantes.jsp"></jsp:include>
                 </aside>
         </div>
 
