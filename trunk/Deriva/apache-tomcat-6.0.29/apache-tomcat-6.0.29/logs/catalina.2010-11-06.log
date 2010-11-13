@@ -1,0 +1,330 @@
+06/11/2010 04:57:36 org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.20.
+06/11/2010 04:57:36 org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+06/11/2010 04:57:36 org.apache.coyote.http11.Http11AprProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+06/11/2010 04:57:36 org.apache.coyote.ajp.AjpAprProtocol init
+INFO: Initializing Coyote AJP/1.3 on ajp-8009
+06/11/2010 04:57:36 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1036 ms
+06/11/2010 04:57:36 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+06/11/2010 04:57:36 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+06/11/2010 04:57:36 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor host-manager.xml
+06/11/2010 04:57:37 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor manager.xml
+06/11/2010 04:57:37 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 04:57:37 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+06/11/2010 04:57:37 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+06/11/2010 04:57:37 org.apache.coyote.http11.Http11AprProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+06/11/2010 04:57:38 org.apache.coyote.ajp.AjpAprProtocol start
+INFO: Starting Coyote AJP/1.3 on ajp-8009
+06/11/2010 04:57:38 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1284 ms
+06/11/2010 04:57:38 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 04:57:38 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 04:57:39 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:01:16 org.apache.coyote.http11.Http11AprProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+06/11/2010 05:01:16 org.apache.coyote.ajp.AjpAprProtocol pause
+INFO: Pausing Coyote AJP/1.3 on ajp-8009
+06/11/2010 05:01:17 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+06/11/2010 05:01:17 org.apache.coyote.http11.Http11AprProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+06/11/2010 05:01:17 org.apache.coyote.ajp.AjpAprProtocol destroy
+INFO: Stopping Coyote AJP/1.3 on ajp-8009
+06/11/2010 05:01:21 org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.20.
+06/11/2010 05:01:21 org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+06/11/2010 05:01:22 org.apache.coyote.http11.Http11AprProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+06/11/2010 05:01:22 org.apache.coyote.ajp.AjpAprProtocol init
+INFO: Initializing Coyote AJP/1.3 on ajp-8009
+06/11/2010 05:01:22 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1059 ms
+06/11/2010 05:01:22 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+06/11/2010 05:01:22 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+06/11/2010 05:01:22 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor host-manager.xml
+06/11/2010 05:01:22 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor manager.xml
+06/11/2010 05:01:22 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:01:22 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+06/11/2010 05:01:22 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+06/11/2010 05:01:23 org.apache.coyote.http11.Http11AprProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+06/11/2010 05:01:23 org.apache.coyote.ajp.AjpAprProtocol start
+INFO: Starting Coyote AJP/1.3 on ajp-8009
+06/11/2010 05:01:23 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1098 ms
+06/11/2010 05:01:26 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:01:26 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:01:26 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:05:13 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:05:13 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:05:13 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:06:16 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:06:16 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:06:17 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:07:25 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:07:25 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:07:25 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:10:26 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:10:26 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:10:26 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:12:56 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:12:56 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:12:56 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:16:58 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:16:58 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:16:59 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:18:57 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:18:57 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:18:57 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:20:24 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:20:24 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:20:24 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:22:54 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:22:54 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:22:54 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:28:03 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:28:03 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:28:03 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:33:10 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:33:10 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:33:11 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:34:05 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:34:05 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:34:05 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:34:46 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:34:46 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:34:46 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:37:17 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:37:17 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:37:17 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:41:54 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:41:54 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:41:54 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:42:50 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:42:50 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:42:50 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:43:32 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:43:32 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:43:33 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:44:53 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:44:54 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:44:54 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:46:03 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:46:03 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:46:04 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:49:43 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:49:43 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:49:43 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 05:51:44 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 05:51:44 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 05:51:44 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:00:17 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:00:17 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:00:17 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:01:01 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:01:01 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:01:01 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:09:54 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:09:54 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:09:54 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:10:16 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:10:16 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:10:16 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:11:49 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:11:49 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:11:49 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:14:31 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:14:31 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:14:31 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:16:55 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:16:55 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:16:55 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:19:58 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:19:58 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:19:59 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:21:08 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:21:08 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:21:08 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:23:06 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:23:06 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:23:06 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:25:06 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:25:06 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:25:06 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:26:00 org.apache.coyote.http11.Http11AprProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+06/11/2010 06:26:00 org.apache.coyote.ajp.AjpAprProtocol pause
+INFO: Pausing Coyote AJP/1.3 on ajp-8009
+06/11/2010 06:26:01 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+06/11/2010 06:26:01 org.apache.coyote.http11.Http11AprProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+06/11/2010 06:26:01 org.apache.coyote.ajp.AjpAprProtocol destroy
+INFO: Stopping Coyote AJP/1.3 on ajp-8009
+06/11/2010 06:28:34 org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.20.
+06/11/2010 06:28:34 org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+06/11/2010 06:28:35 org.apache.coyote.http11.Http11AprProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+06/11/2010 06:28:35 org.apache.coyote.ajp.AjpAprProtocol init
+INFO: Initializing Coyote AJP/1.3 on ajp-8009
+06/11/2010 06:28:35 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 866 ms
+06/11/2010 06:28:35 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+06/11/2010 06:28:35 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+06/11/2010 06:28:35 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor host-manager.xml
+06/11/2010 06:28:35 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor manager.xml
+06/11/2010 06:28:35 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:28:35 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+06/11/2010 06:28:35 org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+06/11/2010 06:28:35 org.apache.coyote.http11.Http11AprProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+06/11/2010 06:28:36 org.apache.coyote.ajp.AjpAprProtocol start
+INFO: Starting Coyote AJP/1.3 on ajp-8009
+06/11/2010 06:28:36 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 936 ms
+06/11/2010 06:28:36 org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context []
+06/11/2010 06:28:36 org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor ROOT.xml
+06/11/2010 06:28:36 org.apache.catalina.core.StandardContext start
+INFO: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/] has already been started
+06/11/2010 06:29:09 org.apache.coyote.http11.Http11AprProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+06/11/2010 06:29:09 org.apache.coyote.ajp.AjpAprProtocol pause
+INFO: Pausing Coyote AJP/1.3 on ajp-8009
+06/11/2010 06:29:10 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+06/11/2010 06:29:10 org.apache.coyote.http11.Http11AprProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+06/11/2010 06:29:11 org.apache.coyote.ajp.AjpAprProtocol destroy
+INFO: Stopping Coyote AJP/1.3 on ajp-8009
