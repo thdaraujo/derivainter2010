@@ -17,7 +17,7 @@ $(document).ready(function(){
 	/* When the box is clicked, hide it: */
 	$('#botao').click(function(){
 		$('#box').bounceBoxHide();
-            });
+            });        
 });
 
 

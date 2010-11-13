@@ -47,8 +47,15 @@
 
         <!--[if lte IE 7]>
         <link rel="stylesheet" type="text/css" href="scripts/ie67hacks.css" />
-        <![endif]-->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+        <![endif]-->        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="scripts/jquery.ae.image.resize.min.js"></script>
+	<script>
+		$(function() {
+			$(".imagemPerfilBarra").aeImageResize({height: 50, width: 50});
+                        $(".imagemPerfil").aeImageResize({height: 150, width: 150});
+		});
+	</script>
     </head>
 
     <body>
@@ -79,7 +86,7 @@
                     <jsp:include page="/Controles/BarraTripulantes.jsp"></jsp:include>
                 </aside>
         </div>
-
+                
         <footer id="main-footer">
                 <section id="footer-1">
                         Deriva &copy; 2010
