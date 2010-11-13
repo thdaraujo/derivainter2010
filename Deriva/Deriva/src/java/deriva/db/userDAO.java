@@ -294,7 +294,7 @@ public class userDAO {
             conn = connectionFactory.getConnection();
 
             ps = conn.prepareStatement("select idusuario, email, senha, nickname, nome, sobrenome, sexo, mensagemPessoal, imagemPerfil, dtnasc from Usuario"
-                    + " where usuarioid = ?");
+                    + " where idusuario = ?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
 
