@@ -17,7 +17,7 @@
         <h2>Contatos</h2>
         <ul>
            <c:forEach var="usr" items="${requestScope.listaAmigos}">
-                <li><a href="mostraPerfil?id=${usr.idusuario}"><img src="${usr.imagemPerfil}" class=imagemPerfilBarra>
+                <li><a href="MostraPerfil?id=${usr.idusuario}"><img src="${usr.imagemPerfil}" class=imagemPerfilBarra>
                         <h3>${usr.nickname}</h3>
                     </a>
                 </li>

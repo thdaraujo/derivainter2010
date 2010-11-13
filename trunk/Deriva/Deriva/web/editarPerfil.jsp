@@ -44,7 +44,7 @@
                 <section class="hfeed">
                         <article class="hentry">
                                 <hgroup>
-                                        <h2 class="entry-title">Editar perfil</a></h2>
+                                        <h2 class="entry-title">Editar perfil</h2>
                                         <h3> <a class="author" href="#"> ${requestScope.usuario.email} </a> </h3>
                                 </hgroup>
                                  <img src="${requestScope.usuario.imagemPerfil}" class="imagemPerfil">
