@@ -15,16 +15,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+
 
 /**
- *  Servlet que salva um novo amigo.
- * 
+ * Mostra o perfil de um navegante qualquer.
+ *
  */
-public class SalvaTripulante extends HttpServlet {
-
+public class MostraPerfil extends HttpServlet {
     private userDAO dao;
-   
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -34,30 +33,22 @@ public class SalvaTripulante extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
-       if (dao == null) dao = DAOFactory.getUserDAO();
-       HttpSession session = request.getSession();
-       Usuario usuario = (Usuario) session.getAttribute("usuario");
-       
-       if (usuario != null){
-           int idusuario = usuario.getIdusuario();
-           String amigo = request.getParameter("idusuario");
+        if (dao == null) dao = DAOFactory.getUserDAO();
 
-           int idamigo = 0;
+           String idnavegante = request.getParameter("id");
+           Usuario u = null;
+
+           int id = 0;
            try{
-               idamigo = Integer.parseInt(amigo);
-               if (idamigo > 0){
-                    dao.cadastrarAmigo(idusuario, idamigo);
-                    request.setAttribute("errorCode", 5);
+               id = Integer.parseInt(idnavegante);
+               if (id > 0){
+                   u = dao.FindUsuarioById(id);
                }
-               else request.setAttribute("errorCode", 6);
-           }catch(Exception e){ 
-            /* define código de erro */
-                request.setAttribute("errorCode", 6);
-           }
-           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MostraPerfil?id=" + idamigo);
+           }catch(Exception e){ }
+
+           if (u != null) request.setAttribute("usuario", u);
+           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/mostraPerfil.jsp");
            dispatcher.forward(request, response);
-       }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

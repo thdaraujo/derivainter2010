@@ -38,7 +38,7 @@
   <html lang="pt">
     <head>
         <meta charset="utf-8" />
-        <title>Deriva - Home</title>
+        <title>Deriva</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

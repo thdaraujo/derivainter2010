@@ -212,7 +212,7 @@ label {
 }
 br { clear: left; }
 
-.errorCode{
+errorCode{
   font: 12px sans-serif;
   color: red;
 }

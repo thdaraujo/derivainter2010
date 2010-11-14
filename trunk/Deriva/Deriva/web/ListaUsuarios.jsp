@@ -18,7 +18,7 @@
 <html lang="pt">
     <head>
         <meta charset="utf-8" />
-        <title>Deriva - Lista de Usuarios</title>
+        <title>Deriva - Lista de Navegantes</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,6 +28,14 @@
         <!--[if lte IE 7]>
         <link rel="stylesheet" type="text/css" href="scripts/ie67hacks.css" />
         <![endif]-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="scripts/jquery.ae.image.resize.min.js"></script>
+	<script>
+		$(function() {
+			$(".imagemPerfilBarra").aeImageResize({height: 50, width: 50});
+                        $(".imagemPerfil").aeImageResize({height: 150, width: 150});
+		});
+	</script>
     </head>
 
     <body>
@@ -40,7 +48,7 @@
 
         <div id="content">
                 <section class="hfeed">                        
-                                    <h2>Lista de Usuarios</h2>                                
+                                    <h2>Lista de Navegantes</h2>
                                     <p>
                                          <c:if test="${requestScope.hasPrevious == true}">
                                                <a href="/ListaUsuarios?pagina=${requestScope.numeroPagina - 1}"><h4>< anterior</h4></a>
@@ -51,16 +59,14 @@
                                     </p>
 
                                     <c:forEach var="usr" items="${requestScope.listaPaginada}">                                                
-                                                <article class="hentry">
-                                                        <a href="mostraPerfil?id=${usr.idusuario}">
+                                                <article class="hentry">                                                        
                                                         <hgroup>
-                                                             <a href="#"><img src="${usr.imagemPerfil}">
-                                                            <h3 class="entry-title">${usr.nickname}</h3>
-                                                            ${usr.email}</a>
+                                                            <a href="MostraPerfil?id=${usr.idusuario}">
+                                                                <img src="${usr.imagemPerfil}" class="imagemPerfil">
+                                                                <h3 class="entry-title">${usr.nickname}</h3>
+                                                            </a>
                                                         </hgroup>
-                                                        <p class="entry-summary">${usr.mensagemPessoal}</p>
-                                                        </a>
-                                                        <footer></footer>
+                                                        <p class="entry-summary">${usr.mensagemPessoal}</p> 
                                                         <br /><hr /><br />
                                                 </article>
                                        </c:forEach>
@@ -75,7 +81,7 @@
                                 
                      </section>
                 <aside>
-                    <%@ include file="Controles/BarraTripulantes.jsp" %>
+                    //TODO - Definir o que deve ser colocado na barra lateral daqui.
                 </aside>
         </div>
 
@@ -84,7 +90,6 @@
                         Deriva &copy; 2010
                 </section>
                 <section id="footer-2">
-
                 </section>
         </footer>
     </body>
