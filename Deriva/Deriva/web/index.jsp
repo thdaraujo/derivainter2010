@@ -17,36 +17,19 @@
         <script type="text/javascript" src="scripts/bouncebox-plugin/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="scripts/bouncebox-plugin/jquery.bouncebox.1.0.js"></script>
         <script type="text/javascript" src="scripts/script.js"></script>
-        <title>Login</title>
+        <title>Partir!</title>
     </head>
     <body>
-
-        <%--   <center><h1>Deriva</h1></center>
-        <!-- formulário de login -->
-        <div class="campoLogin">
-            <h1>Entre com seus dados:</h1>
-            <form method="post" action="SignIn">
-                <p><label>Usuario:</label> <input type="text" name="usuario" class="input" maxlength="255" /></p>
-                <p><label>Senha:</label> <input type="password" name="senha" class="input" maxlength="50"/></p>
-                    <p><input type="submit" value="Sign In" class="button" /></p>
-                    <div id="error">
-                            <%@include file="errorcode.jspf" %>
-                    </div>
-            </form>
-        </div>
-       <center><a href="cadastro.jsp" class="linkSimples">Novo por aqui? Cadastre-se!</a></center> --%>
-
-
             <div id="main">
                 <b><errorCode>
                     <%@include file="errorcode.jspf" %>
                 </erorCode></b>
                 <a class="button" href="#">Partir!</a>
-                <p>Clique para entrar no <strong>Deriva</strong>.<br />
+                <p>Clique para navegar no <strong>Deriva</strong>.<br />
                 <h1><a href="cadastro.jsp">Ou preencha sua ficha de embarque! &raquo;</a></h1>
             </div>
 
-            <div id="box">
+           <div id="box" class="box">
             <p><b>Yarr!</b></p>
             <form method="post" action="SignIn">
                        <label>Usuario:</label> <input type="text" name="usuario" class="input" maxlength="255" /><br />
@@ -57,5 +40,5 @@
                        </erorCode>
                 </form>
             </div>
-</body>
+    </body>
 </html>

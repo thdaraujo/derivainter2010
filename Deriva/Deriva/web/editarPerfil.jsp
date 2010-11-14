@@ -21,7 +21,7 @@
   <html lang="pt">
     <head>
         <meta charset="utf-8" />
-        <title>Deriva - Editar Perfil</title>
+        <title>Deriva - Editar Ficha de Embarque</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,7 +44,7 @@
                 <section class="hfeed">
                         <article class="hentry">
                                 <hgroup>
-                                        <h2 class="entry-title">Editar perfil</h2>
+                                        <h2 class="entry-title">Editar Ficha de Embarque</h2>
                                         <h3> <a class="author" href="#"> ${requestScope.usuario.email} </a> </h3>
                                 </hgroup>
                                  <img src="${requestScope.usuario.imagemPerfil}" class="imagemPerfil">

@@ -13,7 +13,7 @@
   <html lang="pt">
     <head>
         <meta charset="utf-8" />
-        <title>Deriva - Usuario</title>
+        <title>Deriva - ${requestScope.usuario.nickname}</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,6 +50,10 @@
                                 <img src="${requestScope.usuario.imagemPerfil}" class="imagemPerfil">
                                 <p class="entry-summary"> ${requestScope.usuario.mensagemPessoal}  </p>
                                 <footer><a href="/SalvaTripulante?idusuario=${requestScope.usuario.idusuario}">Adicionar tripulante!</a>&emsp;&bull;&emsp;<a href="#">Enviar torpedo</a>&emsp;&bull;&emsp;</footer>
+                                <errorCode>
+                                    <%@include file="errorcode.jspf" %>
+                                </errorCode>
+
                                 <br /><hr /><br />
                         </article>
                 </section>

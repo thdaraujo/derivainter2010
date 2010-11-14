@@ -11,12 +11,18 @@
 			<c:when test="${requestScope.errorCode == 2}">
 				Cadastro efetuado com sucesso!
 			</c:when>
-            <c:when test="${requestScope.errorCode == 3}">
+                        <c:when test="${requestScope.errorCode == 3}">
 				e-mail inválido!                                
 			</c:when>
-            <c:when test="${requestScope.errorCode == 4}">
+                        <c:when test="${requestScope.errorCode == 4}">
 				Senhas não conferem!                                
-			</c:when>           
+			</c:when>
+                        <c:when test="${requestScope.errorCode == 5}">
+                            Tripulante alistado!
+			</c:when>
+                        <c:when test="${requestScope.errorCode == 6}">
+				Não foi possível alistá-lo!
+			</c:when>
 			<c:otherwise>
 				Yarr!
 			</c:otherwise>

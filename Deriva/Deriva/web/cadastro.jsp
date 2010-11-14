@@ -10,32 +10,52 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <style type="text/css" media="screen">
-            @import url("/css/site.css");
+            @import url("/css/stylesLogin.css");
         </style>
-        <title>Cadastro</title>
+        <title>Ficha de Embarque</title>
     </head>
-    <body>
-        <center><h1>Deriva</h1></center>
-        <div class="campoLogin">
-            <center> <h1>Cadastre-se!</h1></center>
-            <form method="post" action="Cadastra">
-                <p><label>E-Mail:</label> <input name="email" type="text" class="input" maxlength="255">
-                <p><label>Senha:</label> <input name="senha" type="password" class="input"  maxlength="10">
-                    <p><label>Digite a senha novamente:</label> <input name="senha2" type="password" class="input"  maxlength="10">
-                <p><label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10">
-                <p><label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20">
-                <p><label>Sobrenome:</label> <input name="sobrenome" type="text" class="input"  maxlength="100">
-                <p><label>Sexo:</label> M<input type="radio" name="sexo" VALUE="M" class="radiobutton"> F<input type="radio" name="sexo" VALUE="F" class="radiobutton">
-                <p><label>Mensagem Pessoal:</label> <input name="mensagemPessoal" type="text" class="input" maxlength="1000">
-                <p><label>Imagem para o Perfil:</label> <input name="imagemPerfil" type="text" class="input"  maxlength="100">
-                <p><label>Ano de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
-                <p><input type="submit" value="Enviar" class="button" accesskey="Enter"></p>
-               <div class="errorCode">
-                   <%@include file="errorcode.jspf" %>
-               </div>
-            </form>
-        </div>
+    <body>      
+
+        <div class="box cadastro">
+                <h1><p>Preencha sua ficha de embarque no <strong>Deriva</strong>!<br /></h1>
+               <form method="post" action="Cadastra">                           
+                    <label>E-Mail:</label> <input name="email" type="text" class="input" maxlength="255"><br /><br />
+                        <label>Senha:</label> <input name="senha" type="password" class="input"  maxlength="10"><br />
+                        <label>Digite a senha novamente:</label> <input name="senha2" type="password" class="input"  maxlength="10"><br /><br />
+                    <label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10"><br />
+                    <label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20"><br />
+                    <label>Sobrenome:</label> <input name="sobrenome" type="text" class="input"  maxlength="100"><br />
+                    <label>Sexo:</label> M<input type="radio" name="sexo" VALUE="M" class="radiobutton"> F<input type="radio" name="sexo" VALUE="F" class="radiobutton"><br />
+                    <label>Mensagem Pessoal:</label> <input name="mensagemPessoal" type="text" class="input" maxlength="1000"><br />
+                    <label>Imagem para o Perfil:</label> <input name="imagemPerfil" type="text" class="input"  maxlength="100"><br />
+                    <label>Ano de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
+
+                       <input type="submit" value="Enviar" id="botao" accesskey="Enter"/>
+                      <errorCode>
+                          <%@include file="errorcode.jspf" %>
+                      </errorCode>
+                </form>             
+         </div>
+       <%-- 
+            <center><h1>Deriva</h1></center>
+            <div class="campoLogin">
+                <center> <h1>Cadastre-se!</h1></center>
+                <form method="post" action="Cadastra">
+                    <p><label>E-Mail:</label> <input name="email" type="text" class="input" maxlength="255">
+                    <p><label>Senha:</label> <input name="senha" type="password" class="input"  maxlength="10">
+                        <p><label>Digite a senha novamente:</label> <input name="senha2" type="password" class="input"  maxlength="10">
+                    <p><label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10">
+                    <p><label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20">
+                    <p><label>Sobrenome:</label> <input name="sobrenome" type="text" class="input"  maxlength="100">
+                    <p><label>Sexo:</label> M<input type="radio" name="sexo" VALUE="M" class="radiobutton"> F<input type="radio" name="sexo" VALUE="F" class="radiobutton">
+                    <p><label>Mensagem Pessoal:</label> <input name="mensagemPessoal" type="text" class="input" maxlength="1000">
+                    <p><label>Imagem para o Perfil:</label> <input name="imagemPerfil" type="text" class="input"  maxlength="100">
+                    <p><label>Ano de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
+                    <p><input type="submit" value="Enviar" class="button" accesskey="Enter"></p>
+
+                </form>
+            </div>
+        --%>
     </body>
 </html>

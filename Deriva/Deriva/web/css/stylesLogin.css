@@ -14,7 +14,8 @@ body{
 
 /* The bouncing box */
 
-#box{
+.box,
+.cadastro{
 	background:url('../images/box_bg.jpg') repeat-x center top #fcfcfc;
 	height:125px;
 	padding:20px;
@@ -27,18 +28,18 @@ body{
 	font-family:'Myriad Pro',Arial,Helvetica,sans-serif;
 }
 
-#box p{
+.box p{
 	font-size:25px;
 	background:url('../images/warning.png') no-repeat 10px center;
 	padding-left:90px;
 }
 
-#box p b{
+.box p b{
 	font-size:52px;
 	display:block;
 }
 
-#box label{
+.box label{
     display: block;
     width: 150px;
     float: left;
@@ -47,7 +48,7 @@ body{
     padding: 0 10px;    
 }
 
-#box errorCode{
+.box errorCode{
     color:red;
     display:block;
     font-size:26px;
@@ -56,8 +57,22 @@ body{
     top:31%;
 }
 
+.cadastro{
+    height: 510px;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    z-index: 10;
+}
 
-#box,
+.cadastro errorCode{
+    font-size:16px;
+    left:35%;
+    top:94%;
+    text-align: center;
+}
+
+.box,
 #main,
 a.button{
 	-moz-border-radius:10px;
@@ -170,4 +185,16 @@ a:hover{
 	background-color: #5eb2e2;
 	background-image: -moz-linear-gradient(#6bbbe9, #57a5d4);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6bbbe9), to(#57a5d4));
+}
+
+br { clear: left; }
+.Date{
+    width: 15px
+}
+.ano{
+    width: 30px
+}
+.MP{
+    height:50px;
+    width:200px;
 }
