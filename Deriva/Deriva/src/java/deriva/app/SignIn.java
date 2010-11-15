@@ -6,6 +6,7 @@ import deriva.neg.Autorizacao;
 import deriva.neg.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 public class SignIn extends HttpServlet {
     private Usuario usersession;
+    private userDAO dao;
 
     private boolean login(String usuario, String senha) {      
        Usuario user = new Usuario(usuario, senha);
@@ -37,11 +39,19 @@ public class SignIn extends HttpServlet {
         HttpSession session = request.getSession(true);
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
+        List<Usuario> contatos = null;
+
+
 
             /* verifica autenticação */
         if (usuario != null && senha != null && login(usuario, senha)) {
-            if (usersession != null) session.setAttribute("usuario", usersession);
-           
+            if (usersession != null){
+                session.setAttribute("usuario", usersession);
+                if (dao == null) dao = DAOFactory.getUserDAO();
+                contatos = dao.listarAmigos(usersession.getIdusuario());
+                session.setAttribute("tripulantes", contatos);
+            }
+
             /* redireciona (client-side) */
             response.sendRedirect("home.jsp");
             return;

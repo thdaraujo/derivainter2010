@@ -81,7 +81,10 @@
                                 
                      </section>
                 <aside>
-                    //TODO - Definir o que deve ser colocado na barra lateral daqui.
+                    <!-- Gambiware: chamo o servlet e o jsp - deve haver um jeito melhor de executar o servlet E DEPOIS dar
+                         include no conteudo da barra, mas não descobri ainda como. Redirect explode tudo. -->
+                    <jsp:include page="/BarraTripulantes"></jsp:include>
+                    <jsp:include page="/Controles/BarraTripulantes.jsp"></jsp:include>
                 </aside>
         </div>
 

@@ -18,10 +18,16 @@
 				Senhas não conferem!                                
 			</c:when>
                         <c:when test="${requestScope.errorCode == 5}">
-                            Tripulante alistado!
+                                Tripulante alistado!
 			</c:when>
                         <c:when test="${requestScope.errorCode == 6}">
 				Não foi possível alistá-lo!
+			</c:when>
+                         <c:when test="${requestScope.errorCode == 7}">
+				Tripulante andou na prancha!
+			</c:when>
+                         <c:when test="${requestScope.errorCode == 8}">
+				Motim! Não foi possível expulsá-lo!
 			</c:when>
 			<c:otherwise>
 				Yarr!

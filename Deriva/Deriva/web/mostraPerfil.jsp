@@ -49,7 +49,16 @@
                                 </hgroup>
                                 <img src="${requestScope.usuario.imagemPerfil}" class="imagemPerfil">
                                 <p class="entry-summary"> ${requestScope.usuario.mensagemPessoal}  </p>
-                                <footer><a href="/SalvaTripulante?idusuario=${requestScope.usuario.idusuario}">Adicionar tripulante!</a>&emsp;&bull;&emsp;<a href="#">Enviar torpedo</a>&emsp;&bull;&emsp;</footer>
+                                <footer>
+                                    <c:if test="${requestScope.IsAmigo == false}">
+                                        <a href="/SalvaTripulante?idusuario=${requestScope.usuario.idusuario}">Adicionar tripulante!
+                                        </a>&emsp;&bull;&emsp;
+                                    </c:if>
+                                    <c:if test="${requestScope.IsAmigo}">
+                                        <a href="/RemoveTripulante?idtripulante=${requestScope.usuario.idusuario}">Expulsar tripulante!
+                                        </a>&emsp;&bull;&emsp;
+                                    </c:if>
+                                    <a href="#">Enviar torpedo</a>&emsp;&bull;&emsp;</footer>
                                 <errorCode>
                                     <%@include file="errorcode.jspf" %>
                                 </errorCode>
