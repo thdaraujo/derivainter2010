@@ -553,6 +553,90 @@ public class userDAO {
         return null;
     }
 
+    /**
+     * Lista todos os amigos de um usuario de forma paginada.
+     * @return
+     */
+    public List<Usuario> ListarTripulantesPaginado(int numeroPagina,int idusuariologado){
+       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+       Usuario u = null;
+       Connection conn = null;
+       PreparedStatement ps = null;
+       ResultSet rs = null;
+       int inicio = 1;
+       int fim = 11;
+
+       //multiplo de 11
+       if (numeroPagina > 0){
+           inicio = numeroPagina * 10;
+           fim = inicio + 11;
+       }
+
+
+
+        try {
+            conn = connectionFactory.getConnection();
+
+            //Seleciona os usuarios de forma paginada - de 11 em 11.
+            ps = conn.prepareStatement("SELECT  * FROM (" +
+                    " SELECT ROW_NUMBER() OVER (ORDER BY RelAmigo.idusuario) AS row," +
+                    " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
+                    " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
+                    " where RelAmigo.idusuario = ?)" +
+                    " AS a WHERE row BETWEEN ? AND ? ");
+            ps.setInt(1, idusuariologado);
+            ps.setInt(2, inicio);
+            ps.setInt(3, fim);
+
+
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int idusuario = rs.getInt("idusuario");
+                String email = rs.getString("email");
+                String nickname = rs.getString("nickname");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+
+                char sexo = '\0';
+                if (rs.getString("sexo") != null) {
+                    sexo = rs.getString("sexo").charAt(0);
+                }
+                String mensagemPessoal = rs.getString("mensagemPessoal");
+                String imagemPerfil = rs.getString("imagemPerfil");
+                Date dtnasc = rs.getDate("dtnasc");
+                String senha = rs.getString("senha");
+
+                u = new Usuario(idusuario, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                listaUsuarios.add(u);
+            }
+            return listaUsuarios;
+
+        } catch (SQLException ex) {
+            LOG.log(Level.SEVERE, null, ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) { }
+            }
+        }
+        return null;
+    }
+
     public List<Usuario> listarAmigos(int idusuario){
         List<Usuario> listaAmigos = new ArrayList<Usuario>();
 
