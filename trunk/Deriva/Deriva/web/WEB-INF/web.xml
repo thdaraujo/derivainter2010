@@ -45,6 +45,14 @@
         <servlet-name>MostraPerfil</servlet-name>
         <servlet-class>deriva.app.MostraPerfil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveTripulante</servlet-name>
+        <servlet-class>deriva.app.RemoveTripulante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListaTripulantes</servlet-name>
+        <servlet-class>deriva.app.ListaTripulantes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -88,6 +96,14 @@
     <servlet-mapping>
         <servlet-name>MostraPerfil</servlet-name>
         <url-pattern>/MostraPerfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveTripulante</servlet-name>
+        <url-pattern>/RemoveTripulante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaTripulantes</servlet-name>
+        <url-pattern>/ListaTripulantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

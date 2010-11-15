@@ -10,6 +10,7 @@ import deriva.db.userDAO;
 import deriva.neg.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -46,8 +47,9 @@ public class SalvaTripulante extends HttpServlet {
            int idamigo = 0;
            try{
                idamigo = Integer.parseInt(amigo);
-               if (idamigo > 0){
+               if (idamigo > 0 && (idamigo != usuario.getIdusuario())){
                     dao.cadastrarAmigo(idusuario, idamigo);
+                    refreshSessionTripulantes(session, idusuario);
                     request.setAttribute("errorCode", 5);
                }
                else request.setAttribute("errorCode", 6);
@@ -55,7 +57,7 @@ public class SalvaTripulante extends HttpServlet {
             /* define código de erro */
                 request.setAttribute("errorCode", 6);
            }
-           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MostraPerfil?id=" + idamigo);
+           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MostraPerfil?id=" + amigo);
            dispatcher.forward(request, response);
        }
     } 
@@ -96,4 +98,11 @@ public class SalvaTripulante extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private void refreshSessionTripulantes(HttpSession session, int idusuario) {
+        session.removeAttribute("tripulantes");
+
+        if (dao == null) dao = DAOFactory.getUserDAO();
+        List<Usuario> contatos = dao.listarAmigos(idusuario);
+        session.setAttribute("tripulantes", contatos);
+    }
 }

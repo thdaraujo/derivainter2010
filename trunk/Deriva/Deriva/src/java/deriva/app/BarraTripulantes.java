@@ -38,23 +38,42 @@ public class BarraTripulantes extends HttpServlet {
     throws ServletException, IOException {
         if (dao == null) dao = DAOFactory.getUserDAO();
         HttpSession session = request.getSession();
-        String usuarioid = request.getParameter("id");        
+        String usuarioid = request.getParameter("id");
+        List<Usuario> listaAux;
+        listaAmigos = new ArrayList<Usuario>();
         int idusuario = 0;
+        String title = "";
 
         try{
             idusuario = Integer.parseInt(usuarioid);
         }catch(Exception ex){}        
             
         if (idusuario == 0){
-            Usuario user = (Usuario) session.getAttribute("usuario");            
-            idusuario = user.getIdusuario();
+            //Usuario user = (Usuario) session.getAttribute("usuario");
+            //idusuario = user.getIdusuario();
+            listaAux = (List<Usuario>)session.getAttribute("tripulantes");
+            title = "Tripulantes";
         }
-        
-        listaAmigos = dao.listarAmigos(idusuario);  
-        request.setAttribute("listaAmigos", listaAmigos);
+        else{
+            listaAux = dao.listarAmigos(idusuario);
+             try{
+                 Usuario user = dao.FindUsuarioById(idusuario);
+                 Usuario eu = (Usuario) session.getAttribute("usuario");
+                 
+                 //por questão de clareza, vou adicionar isso ao título da barra só se não for o meu perfil a ser visto.
+                 if (user.getIdusuario() != eu.getIdusuario()){
+                     title = "Tripulantes de " + user.getNickname();
+                 }
+             }catch(Exception ex){}
+        }
 
-        //getServletContext().getRequestDispatcher("/Controles/BarraTripulantes.jsp").forward(request, response);
-        //getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+         for (int i = 0; i < 5; i++) {
+            if (i < listaAux.size()) listaAmigos.add(listaAux.get(i));
+            else break;
+        }
+
+        request.setAttribute("listaAmigos", listaAmigos); 
+        request.setAttribute("title", title);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="Métodos HttpServlet. Clique no sinal de + à esquerda para editar o código.">

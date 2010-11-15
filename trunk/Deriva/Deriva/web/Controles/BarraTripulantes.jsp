@@ -12,7 +12,7 @@
         </ul>
         <br /> -->
       
-        <h2>Tripulantes</h2>
+        <h2>${requestScope.title}</h2>
         <ul>
            <c:forEach var="usr" items="${requestScope.listaAmigos}">
                 <li><a href="MostraPerfil?id=${usr.idusuario}"><img src="${usr.imagemPerfil}" class=imagemPerfilBarra>
@@ -20,6 +20,7 @@
                     </a>
                 </li>
            </c:forEach>
+                <li><a href="/ListaTripulantes">Ver minha tripulação</a></li>
        </ul>       
        <br />
         <%--

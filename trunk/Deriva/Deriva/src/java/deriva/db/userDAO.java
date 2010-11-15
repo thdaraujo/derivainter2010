@@ -481,7 +481,7 @@ public class userDAO {
        Connection conn = null;
        PreparedStatement ps = null;
        ResultSet rs = null;
-       int inicio = 1;
+       int inicio = 0;
        int fim = 11;
 
        //multiplo de 11
@@ -497,11 +497,12 @@ public class userDAO {
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
             ps = conn.prepareStatement("SELECT  * FROM (" +
-                                                        " SELECT ROW_NUMBER() OVER (ORDER BY idusuario) AS row," +
-                                                        " idusuario, email, senha, nickname, nome, sobrenome, sexo," +
-                                                        " mensagemPessoal, imagemPerfil, dtnasc" +
-                                                        " FROM Usuario) " +
-                                        " AS a WHERE row BETWEEN ? AND ? ");
+                                                        " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number, " +
+                                                        " idusuario, email, senha, nickname, nome, sobrenome, sexo, " +
+                                                        " mensagemPessoal, imagemPerfil, dtnasc " +
+                                                        " FROM Usuario" +
+                                                        ") foo " +
+                                        " WHERE row_number > ? and row_number <= ?;");
 
             ps.setInt(1, inicio);
             ps.setInt(2, fim);
@@ -563,7 +564,7 @@ public class userDAO {
        Connection conn = null;
        PreparedStatement ps = null;
        ResultSet rs = null;
-       int inicio = 1;
+       int inicio = 0;
        int fim = 11;
 
        //multiplo de 11
@@ -579,11 +580,12 @@ public class userDAO {
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
             ps = conn.prepareStatement("SELECT  * FROM (" +
-                    " SELECT ROW_NUMBER() OVER (ORDER BY RelAmigo.idusuario) AS row," +
+                    " SELECT ROW_NUMBER() OVER (ORDER BY RelAmigo.idusuario ASC) AS row_number," +
                     " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
                     " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
-                    " where RelAmigo.idusuario = ?)" +
-                    " AS a WHERE row BETWEEN ? AND ? ");
+                    " where RelAmigo.idusuario = ?) foo " +
+                    " WHERE row_number > ? and row_number <= ?;");
+
             ps.setInt(1, idusuariologado);
             ps.setInt(2, inicio);
             ps.setInt(3, fim);
@@ -851,6 +853,32 @@ public class userDAO {
             conn = connectionFactory.getConnection();
             ps = conn.prepareStatement("DELETE from Usuario where idusuario = ?;");
             ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            LOG.log(Level.SEVERE, null, ex);
+            throw ex;
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+    }
+
+    public void DeleteTripulante(int idusuario, int idamigo) throws SQLException {
+        try {
+            conn = connectionFactory.getConnection();
+            ps = conn.prepareStatement("DELETE from RelAmigo where idusuario = ? and idamigo = ?;");
+            ps.setInt(1, idusuario);
+            ps.setInt(2, idamigo);
             ps.executeUpdate();
         } catch (SQLException ex) {
             LOG.log(Level.SEVERE, null, ex);

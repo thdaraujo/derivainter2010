@@ -18,7 +18,7 @@
 <html lang="pt">
     <head>
         <meta charset="utf-8" />
-        <title>Deriva - Lista de Tripulantes</title>
+        <title>Deriva - Lista dos Tripulantes</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,7 +48,7 @@
 
         <div id="content">
                 <section class="hfeed">                        
-                                    <h2>Lista de Navegantes</h2>
+                                    <h2>Lista de Tripulantes</h2>
                                     <p>
                                          <c:if test="${requestScope.hasPrevious == true}">
                                                <a href="/ListaTripulantes?pagina=${requestScope.numeroPagina - 1}"><h4>< anterior</h4></a>
@@ -81,7 +81,10 @@
                                 
                      </section>
                 <aside>
-                    //TODO - Definir o que deve ser colocado na barra lateral daqui.
+                    <!-- Gambiware: chamo o servlet e o jsp - deve haver um jeito melhor de executar o servlet E DEPOIS dar
+                         include no conteudo da barra, mas não descobri ainda como. Redirect explode tudo. -->
+                    <jsp:include page="/BarraTripulantes"></jsp:include>
+                    <jsp:include page="/Controles/BarraTripulantes.jsp"></jsp:include>
                 </aside>
         </div>
 
