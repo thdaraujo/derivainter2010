@@ -31,6 +31,28 @@
                         $(".imagemPerfil").aeImageResize({height: 150, width: 150});
 		});
 	</script>
+    <script type="text/javascript" src="scripts/jconfirmaction.jquery.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+
+
+				$('.ask-plain').click(function(e) {
+
+					e.preventDefault();
+					thisHref	= $(this).attr('href');
+
+					if(confirm('Are you sure')) {
+						window.location = thisHref;
+					}
+
+				});
+
+				$('.ask-custom').jConfirmAction({question : "Anda Yakin?", yesAnswer : "Ya", cancelAnswer : "Tidak"});
+				$('.ask').jConfirmAction();
+			});
+
+		</script>
     </head>
 
     <body>
@@ -55,7 +77,7 @@
                                         </a>&emsp;&bull;&emsp;
                                     </c:if>
                                     <c:if test="${requestScope.IsAmigo}">
-                                        <a href="/RemoveTripulante?idtripulante=${requestScope.usuario.idusuario}">Expulsar tripulante!
+                                        <a href="/RemoveTripulante?idtripulante=${requestScope.usuario.idusuario}" class="ask">Expulsar tripulante!
                                         </a>&emsp;&bull;&emsp;
                                     </c:if>
                                     <a href="#">Enviar torpedo</a>&emsp;&bull;&emsp;</footer>
