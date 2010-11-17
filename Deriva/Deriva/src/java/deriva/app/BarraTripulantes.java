@@ -67,7 +67,7 @@ public class BarraTripulantes extends HttpServlet {
              }catch(Exception ex){}
         }
 
-         for (int i = 0; i < 5; i++) {
+         for (int i = 0; i < 4; i++) {
             if (i < listaAux.size()) listaAmigos.add(listaAux.get(i));
             else break;
         }
