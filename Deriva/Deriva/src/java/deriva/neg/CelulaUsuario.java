@@ -1,3 +1,7 @@
+package deriva.neg;
+
+import deriva.db.DAOFactory;
+import deriva.db.userDAO;
 import deriva.neg.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -5,10 +9,11 @@ import java.util.List;
 
 public class CelulaUsuario {
 
-    int contdeusuarios = 1;//Serve para saber qtos ids diferentes ainda existem na lista de usuarios, deixa-se um para fazer a primeira iteração
-    Usuario user;
-    CelulaUsuario pai;
-    List<CelulaUsuario> ListadeUsuarios = new ArrayList<CelulaUsuario>();//Lista q receberá os usuários em célula e só guardará os não repetidos
+    private int contdeusuarios = 1;//Serve para saber qtos ids diferentes ainda existem na lista de usuarios, deixa-se um para fazer a primeira iteração
+    private Usuario user;
+    private CelulaUsuario pai;
+    private List<CelulaUsuario> ListadeUsuarios = new ArrayList<CelulaUsuario>();//Lista q receberá os usuários em célula e só guardará os não repetidos
+    private userDAO dao = DAOFactory.getUserDAO();
 
 //Construtores, Getters e Setters"
     public CelulaUsuario(CelulaUsuario pai, Usuario usuario) {
@@ -59,6 +64,10 @@ public class CelulaUsuario {
         if(contdeusuarios > 0)//Numero de usuarios na lista de ids unicos ( pra saber quantas vezes fazer a busca )
         {
             List<Usuario> Lista = new ArrayList<Usuario>();//Lista q receberá o resultset do banco
+
+
+            Lista = dao.ListarUsuarios();
+
             List<CelulaUsuario> Amigos = new ArrayList<CelulaUsuario>();//Lista q receberá os amigos de cada usuário q ainda não estão na lista comlpeta de IDs
             for (Usuario usuario : Lista)
             {
@@ -70,7 +79,7 @@ public class CelulaUsuario {
                     contdeusuarios += 1;//Aumenta o contador em 1 pra fazer mais uma busca
                     if(usuario.getIdusuario() == fim.getIdusuario())//Checa se chegou ao usuario final
                     {
-                        imprime();//Imprime se for o ultimo, pq aih nao precisa mais buscar
+                        retornaCaminho();//Imprime se for o ultimo, pq aih nao precisa mais buscar
 						return;
                     }
                 }
@@ -82,11 +91,18 @@ public class CelulaUsuario {
         }
     }
 
-    public void imprime(){
+    public List<Usuario> retornaCaminho(){
+        List<Usuario> retorno = new ArrayList<Usuario>();
+
         CelulaUsuario imp = ListadeUsuarios.get(ListadeUsuarios.size());//Pega a ultima celula de usuario na lista comlpeta e guarda em imp
         while(imp.getPai() != null){
             System.out.println(">" + imp.getUsuario().getNickname());//Imprime imp
+
+            Usuario atual = imp.getUsuario();
+            if (atual != null) retorno.add(atual);
+
             imp = imp.getPai();//imp recebe o pai dele
         }
+        return retorno;
     }
 }

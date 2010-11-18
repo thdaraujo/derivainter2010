@@ -53,6 +53,10 @@
         <servlet-name>ListaTripulantes</servlet-name>
         <servlet-class>deriva.app.ListaTripulantes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MenorCaminho</servlet-name>
+        <servlet-class>deriva.app.MenorCaminho</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -104,6 +108,10 @@
     <servlet-mapping>
         <servlet-name>ListaTripulantes</servlet-name>
         <url-pattern>/ListaTripulantes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenorCaminho</servlet-name>
+        <url-pattern>/MenorCaminho</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
