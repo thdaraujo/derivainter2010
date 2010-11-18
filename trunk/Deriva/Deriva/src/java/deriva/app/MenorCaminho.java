@@ -18,6 +18,7 @@ import deriva.neg.CelulaUsuario;
 import deriva.neg.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,7 +40,8 @@ public class MenorCaminho extends HttpServlet {
     throws ServletException, IOException {
 
 
-        Usuario usuario =  (Usuario) request.getAttribute("usuario");
+       HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
         String id = request.getParameter("id");
         int idusuario = 0;
         List<Usuario> caminho = new ArrayList<Usuario>();
@@ -53,14 +55,14 @@ public class MenorCaminho extends HttpServlet {
                     Usuario fim = dao.FindLoginById(idusuario);
                     if (cell == null) cell = new CelulaUsuario(null, usuario);
                     if (usuario != null && fim != null){
-                        cell.menorCaminho(usuario, fim);
+                        cell.menorCaminho(usuario, fim);                        
                         caminho = cell.retornaCaminho();
                         request.setAttribute("caminho", caminho);
                     }
                 }catch(Exception ex){}
             }
-        }
-    } 
+     }
+     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

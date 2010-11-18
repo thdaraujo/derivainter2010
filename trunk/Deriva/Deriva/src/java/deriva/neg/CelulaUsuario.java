@@ -14,6 +14,10 @@ public class CelulaUsuario {
     private CelulaUsuario pai;
     private List<CelulaUsuario> ListadeUsuarios = new ArrayList<CelulaUsuario>();//Lista q receberá os usuários em célula e só guardará os não repetidos
     private userDAO dao = DAOFactory.getUserDAO();
+    private List<Usuario> retorno = new ArrayList<Usuario>();
+   private List<Usuario> ListaCaminho = new ArrayList<Usuario>();
+
+   
 
 //Construtores, Getters e Setters"
     public CelulaUsuario(CelulaUsuario pai, Usuario usuario) {
@@ -66,7 +70,7 @@ public class CelulaUsuario {
             List<Usuario> Lista = new ArrayList<Usuario>();//Lista q receberá o resultset do banco
 
 
-            Lista = dao.ListarUsuarios();
+            Lista = dao.listarAmigos(inicio.getIdusuario());
 
             List<CelulaUsuario> Amigos = new ArrayList<CelulaUsuario>();//Lista q receberá os amigos de cada usuário q ainda não estão na lista comlpeta de IDs
             for (Usuario usuario : Lista)
@@ -79,7 +83,7 @@ public class CelulaUsuario {
                     contdeusuarios += 1;//Aumenta o contador em 1 pra fazer mais uma busca
                     if(usuario.getIdusuario() == fim.getIdusuario())//Checa se chegou ao usuario final
                     {
-                        retornaCaminho();//Imprime se for o ultimo, pq aih nao precisa mais buscar
+                        //retornaCaminho();//Imprime se for o ultimo, pq aih nao precisa mais buscar
 						return;
                     }
                 }
@@ -91,18 +95,29 @@ public class CelulaUsuario {
         }
     }
 
-    public List<Usuario> retornaCaminho(){
-        List<Usuario> retorno = new ArrayList<Usuario>();
+        public List<Usuario> retornaCaminho(){
+            CelulaUsuario imp = ListadeUsuarios.get(ListadeUsuarios.size());//Pega a ultima celula de usuario na lista comlpeta e guarda em imp
+//
 
-        CelulaUsuario imp = ListadeUsuarios.get(ListadeUsuarios.size());//Pega a ultima celula de usuario na lista comlpeta e guarda em imp
-        while(imp.getPai() != null){
-            System.out.println(">" + imp.getUsuario().getNickname());//Imprime imp
+           // while(imp.getPai() != null){
+//                System.out.println(">" + imp.getUsuario().getNickname());//Imprime imp
+//
+//                Usuario atual = imp.getUsuario();
+//                if (atual != null) retorno.add(atual);
+//
+//                imp = imp.getPai();//imp recebe o pai dele
+//            }
+//            return retorno;
 
-            Usuario atual = imp.getUsuario();
-            if (atual != null) retorno.add(atual);
-
-            imp = imp.getPai();//imp recebe o pai dele
+             while(imp.getPai() != null){
+                 Usuario u = imp.getUsuario();
+                 ListaCaminho.add(u);
+                 imp = imp.getPai();
+             }
+            return ListaCaminho;
         }
-        return retorno;
-    }
+
+
+
+
 }

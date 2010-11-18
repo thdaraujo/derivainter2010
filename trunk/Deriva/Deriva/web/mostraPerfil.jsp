@@ -73,11 +73,13 @@
                                 <p class="entry-summary"> ${requestScope.usuario.mensagemPessoal}  </p>
                                 <footer>
                                     <c:if test="${requestScope.IsAmigo == false}">
-                                        <a href="/SalvaTripulante?idusuario=${requestScope.usuario.idusuario}">Adicionar tripulante!
+                                        <a href="/SalvaTripulante?idusuario=${requestScope.usuario.idusuario}" class="ask">Adicionar tripulante!
                                         </a>&emsp;&bull;&emsp;
                                     </c:if>
                                     <c:if test="${requestScope.IsAmigo}">
-                                        <a href="/RemoveTripulante?idtripulante=${requestScope.usuario.idusuario}" class="ask">Expulsar tripulante!
+                                        <div id="container">
+                                            <a href="/RemoveTripulante?idtripulante=${requestScope.usuario.idusuario}" class="ask">Expulsar tripulante!
+                                        </div>
                                         </a>&emsp;&bull;&emsp;
                                     </c:if>
                                     <a href="#">Enviar torpedo</a>&emsp;&bull;&emsp;</footer>
