@@ -225,7 +225,7 @@ errorCode{
 	height: 78px;
 	font-size: 13px;
 	line-height: 1.5em;
-	background: url('images/bubble.png') left top no-repeat;
+	background: url('./images/bubble.png') left top no-repeat;
 	padding: 10px 0 0 0;
 	text-shadow: 0px 1px 0px #fff;
 	margin-left: -7em;
@@ -242,7 +242,7 @@ errorCode{
 	height: 21px;
 	color: #fff;
 	text-shadow: 0px 1px 0px #000;
-	background: url('images/button.png') left top no-repeat;
+	background: url('./images/button.png') left top no-repeat;
 }
 
 .title {
@@ -252,5 +252,7 @@ errorCode{
 	font-style: italic;
 	text-shadow: 0px 2px 0px #fff;
 }
+
+
 
 
