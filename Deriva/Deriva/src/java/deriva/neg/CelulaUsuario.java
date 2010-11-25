@@ -96,7 +96,7 @@ public class CelulaUsuario {
     }
 
         public List<Usuario> retornaCaminho(){
-            CelulaUsuario imp = ListadeUsuarios.get(ListadeUsuarios.size());//Pega a ultima celula de usuario na lista comlpeta e guarda em imp
+            CelulaUsuario imp = ListadeUsuarios.get(ListadeUsuarios.size() - 1);//Pega a ultima celula de usuario na lista comlpeta e guarda em imp
 //
 
            // while(imp.getPai() != null){
