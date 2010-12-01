@@ -741,19 +741,20 @@ public class userDAO {
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
             ps = conn.prepareStatement("SELECT  * FROM (" +
-                    " SELECT ROW_NUMBER() OVER (ORDER BY id ASC) AS row_number," +
-                    " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
-                    " where where upper(email) like upper('%?%')" +
-                    " or upper(nickname) like upper('%?%')" +
-                    " or upper(nome) like upper('%?%')" +
-                    " or upper(sobrenome) like upper('%?%')" +
+                            " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number," +
+                            " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
+                            " FROM Usuario " +
+                            " where upper(email) like upper(?) " +
+                            " or upper(nickname) like upper(?) " +
+                            " or upper(nome) like upper(?) " +
+                            " or upper(sobrenome) like upper(?) " +
                     " ) foo " +
                     " WHERE row_number > ? and row_number <= ?;");
 
-            ps.setString(1, termosBusca);
-            ps.setString(2, termosBusca);
-            ps.setString(3, termosBusca);
-            ps.setString(4, termosBusca);
+            ps.setString(1, "%"+termosBusca+"%");
+            ps.setString(2, "%"+termosBusca+"%");
+            ps.setString(3, "%"+termosBusca+"%");
+            ps.setString(4, "%"+termosBusca+"%");
             ps.setInt(5, inicio);
             ps.setInt(6, fim);
 
