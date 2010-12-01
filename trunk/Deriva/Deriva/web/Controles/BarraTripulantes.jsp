@@ -23,6 +23,18 @@
                 <li><a href="/ListaTripulantes">Ver minha tripulação</a></li>
        </ul>       
        <br />
+
+        <div id="busca" class="busca">
+            <h2>Busca</h2>
+                <form method="post" action="Busca">
+                   <p>
+                       <input type="text" name="termos" class="input" maxlength="100" />
+                       <input type="submit" value="Vai!" id="botao" />
+                   </p>
+                </form>
+
+        </div>
+       
         <%--
         <h2>Comunidades</h2>
         <ul>
