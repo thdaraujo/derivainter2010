@@ -721,7 +721,90 @@ public class userDAO {
         return listaUsuarios;
     }
 
+    public List<Usuario> BuscarUsuarios(int numeroPagina, String termosBusca){
+       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+       Connection conn = null;
+       PreparedStatement ps = null;
+       ResultSet rs = null;
+       int inicio = 0;
+       int fim = 11;
+       Usuario u = null;
 
+       //multiplo de 11
+       if (numeroPagina > 0){
+           inicio = numeroPagina * 10;
+           fim = inicio + 11;
+       }
+
+        try {
+            conn = connectionFactory.getConnection();
+
+            //Seleciona os usuarios de forma paginada - de 11 em 11.
+            ps = conn.prepareStatement("SELECT  * FROM (" +
+                    " SELECT ROW_NUMBER() OVER (ORDER BY id ASC) AS row_number," +
+                    " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
+                    " where where upper(email) like upper('%?%')" +
+                    " or upper(nickname) like upper('%?%')" +
+                    " or upper(nome) like upper('%?%')" +
+                    " or upper(sobrenome) like upper('%?%')" +
+                    " ) foo " +
+                    " WHERE row_number > ? and row_number <= ?;");
+
+            ps.setString(1, termosBusca);
+            ps.setString(2, termosBusca);
+            ps.setString(3, termosBusca);
+            ps.setString(4, termosBusca);
+            ps.setInt(5, inicio);
+            ps.setInt(6, fim);
+
+
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int idusuario = rs.getInt("idusuario");
+                String email = rs.getString("email");
+                String nickname = rs.getString("nickname");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+
+                char sexo = '\0';
+                if (rs.getString("sexo") != null) {
+                    sexo = rs.getString("sexo").charAt(0);
+                }
+                String mensagemPessoal = rs.getString("mensagemPessoal");
+                String imagemPerfil = rs.getString("imagemPerfil");
+                Date dtnasc = rs.getDate("dtnasc");
+                String senha = rs.getString("senha");
+
+                u = new Usuario(idusuario, email, senha, nome, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
+                listaUsuarios.add(u);
+            }
+            return listaUsuarios;
+
+        } catch (SQLException ex) {
+            LOG.log(Level.SEVERE, null, ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) { }
+            }
+        }
+        return null;
+    }
 
 
      public List<Usuario> ListarUsuariosAtivos(){
