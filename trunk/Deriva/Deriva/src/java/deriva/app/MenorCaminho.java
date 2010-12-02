@@ -53,14 +53,14 @@ public class MenorCaminho extends HttpServlet {
         if (idusuario > 0){
             try{
                     Usuario fim = dao.FindLoginById(idusuario);
-                    if (cell == null) cell = new CelulaUsuario(null, usuario);
+                    //if (cell == null) cell = new CelulaUsuario(null, usuario);
                     if (usuario != null && fim != null){
-                        cell.menorCaminho(usuario, fim);                        
-                        caminho = cell.retornaCaminho();
+                        cell.retornaCaminho(usuario, fim);                        
                         request.setAttribute("caminho", caminho);
                     }
                 }catch(Exception ex){}
             }
+        getServletContext().getRequestDispatcher("/mostraPerfil.jsp?id="+id).forward(request, response);
      }
      
 

@@ -87,6 +87,7 @@
                                     <%@include file="errorcode.jspf" %>
                                 </errorCode>
 
+                                 <c:out value="${requestScope.caminho}"></c:out>
                                 <br /><hr /><br />
                         </article>
                 </section>
