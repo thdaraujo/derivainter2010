@@ -55,7 +55,8 @@ public class BarraTripulantes extends HttpServlet {
             title = "Tripulantes";
         }
         else{
-            listaAux = dao.listarAmigos(idusuario);
+
+
              try{
                  Usuario user = dao.FindUsuarioById(idusuario);
                  Usuario eu = (Usuario) session.getAttribute("usuario");
@@ -67,12 +68,15 @@ public class BarraTripulantes extends HttpServlet {
              }catch(Exception ex){}
         }
 
-         for (int i = 0; i < 4; i++) {
-            if (i < listaAux.size()) listaAmigos.add(listaAux.get(i));
-            else break;
+        listaAux = dao.listarAmigos(idusuario);
+        if (listaAux != null){
+                 for (int i = 0; i < 4; i++) {
+                    if (i < listaAux.size()) listaAmigos.add(listaAux.get(i));
+                else break;
+             }
+                 request.setAttribute("listaAmigos", listaAmigos);
         }
-
-        request.setAttribute("listaAmigos", listaAmigos); 
+        
         request.setAttribute("title", title);
     } 
 
