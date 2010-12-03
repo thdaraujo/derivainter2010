@@ -54,11 +54,11 @@
                     <label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20"><br />
                     <label>Sobrenome:</label> <input name="sobrenome" type="text" class="input"  maxlength="100"><br />
                     <label>Sexo:</label> M<input type="radio" name="sexo" VALUE="M" class="radiobutton"> F<input type="radio" name="sexo" VALUE="F" class="radiobutton"><br />
-                    <label>Mensagem Pessoal:</label> <input name="mensagemPessoal" type="text" class="input" maxlength="1000"><br />
+                    <label>Mensagem Pessoal:</label> <textarea rows="10" cols="30" name="mensagemPessoal" type="text" class="input MP" maxlength="1000"></textarea><br />
                     <label>Imagem para o Perfil:</label> <input name="imagemPerfil" type="text" class="input"  maxlength="100"><br />
-                    <label>Ano de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
+                    <label>Data de nascimento:</label> <input name="dia" type="text" class="input Date" maxlength="2">/<input name="mes" type="text"  class="input Date" maxlength="2">/<input name="ano" type="text" class="input Date ano"  maxlength="4">
 
-                       <input type="submit" value="Enviar" id="botao" accesskey="Enter"/>
+                       <input type="submit" value="Enviar" id="botao"/>
                       <errorCode>
                           <%@include file="errorcode.jspf" %>
                       </errorCode>

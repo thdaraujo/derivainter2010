@@ -29,6 +29,9 @@
                          <c:when test="${requestScope.errorCode == 8}">
 				Motim! Não foi possível expulsá-lo!
 			</c:when>
+            <c:when test="${requestScope.errorCode == 9}">
+				Yarr! Navegante já existe!
+            </c:when>
 			<c:otherwise>
 				Yarr!
 			</c:otherwise>
