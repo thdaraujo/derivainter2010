@@ -22,7 +22,14 @@
                 regexp = /[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/;
                 if(!email.match(regexp))
                     {
-                       alert(email + " é um e-mail inválido");
+                       document.getElementById('botao').disabled=true;
+                       document.getElementById('lblEmail').innerHTML = '<img src="images/error.png" width="20" height="20>';
+                    }
+                else
+                    {
+                        document.getElementById('botao').disabled=false;
+                        document.getElementById('lblEmail').innerHTML = '<img src="images/check.gif" width="20" height="20>';
+                        VerificaSenha();
                     }
             };
 
@@ -30,13 +37,18 @@
             {
                 senha1 = $('#senha1id').val();
                 senha2 = $('#senha2id').val();
-                if (senha1 != null && senha2 != null)
-                    {
-                        if(senha1 == senha2)
+                regexp = /[a-zA-Z0-9._-]/;
+                        if(senha1 == senha2 && senha1.match(regexp) && senha1.length > 6)
                             {
-                                alert("teste");
+                                document.getElementById('botao').disabled=false;
+                                document.getElementById('lblSenhas').innerHTML = '<img src="images/check.gif" width="20" height="20>';
+                                VerificaEmail();
                             }
-                    }
+                        else
+                            {
+                                document.getElementById('botao').disabled=true;
+                                document.getElementById('lblSenhas').innerHTML = '<img src="images/error.png"" width="20" height="20>';
+                            }
             }
 
         </script>
@@ -46,9 +58,9 @@
 
         <div class="box cadastro">
                 <h1><p>Preencha sua ficha de embarque no <strong>Deriva</strong>!<br /></h1>
-               <form method="post" action="Cadastra">                           
-                    <label>E-Mail:</label> <input id ="emailid" name="email" type="text" class="input" maxlength="255" onchange="VerificaEmail();"><br /><br />
-                        <label>Senha:</label> <input id="senha1id" name="senha" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br />
+                <form id="Cadastro" method="post" action="Cadastra">
+                    <label>E-Mail:</label><label id="lblEmail" style="width:20px; float:right;"></label><input id ="emailid" name="email" type="text" class="input" maxlength="255" onchange="VerificaEmail();"><br /><br />
+                        <label>Senha:</label><label id="lblSenhas" style="width:20px; float:right;"></label><input id="senha1id" name="senha" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br /><br />
                         <label>Digite a senha novamente:</label> <input id="senha2id" name="senha2" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br /><br />
                     <label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10"><br />
                     <label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20"><br />
