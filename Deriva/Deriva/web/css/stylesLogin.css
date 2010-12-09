@@ -14,10 +14,9 @@ body{
 
 /* The bouncing box */
 
-.box,
-.cadastro{
+.box{
 	background:url('../images/box_bg.jpg') repeat-x center top #fcfcfc;
-	height:125px;
+	height:150px;
 	padding:20px;
 	margin-top:-10px;
 	padding-top:30px;
@@ -192,21 +191,20 @@ br { clear: left; }
     width: 15px
 }
 .ano{
-    width: 30px
+    width: 30px;
 }
 .MP{
     height:50px;
-    width:200px;
+    width:150px;
 }
 
 .box,
 .ajax{
 	background:url('../images/box_bg.jpg') repeat-x center top #fcfcfc;
-	height:250px;
 	padding:20px;
 	margin-top:-10px;
 	padding-top:30px;
-	width:400px;
+	width:500px;
 	border:1px solid #fcfcfc;
 	color:#494848;
 	text-shadow:1px 1px 0 white;

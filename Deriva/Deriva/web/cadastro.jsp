@@ -72,9 +72,9 @@
         <div class="box cadastro">
                 <h1><p>Preencha sua ficha de embarque no <strong>Deriva</strong>!<br /></h1>
                 <form id="Cadastro" method="post" action="Cadastra">
-                    <label>E-Mail:</label><label id="lblEmail" style="width:20px; float:right;"></label><input id ="emailid" name="email" type="text" class="input" maxlength="255" onchange="VerificaEmail();"><br />
-                    <label style="width:265px"><font size="2">Exemplo: a@a.com</font></label><br />
-                        <label>Senha:</label><label id="lblSenhas" style="width:20px; float:right;"></label><input id="senha1id" name="senha" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br /><br />
+                    <label>E-Mail:</label><label id="lblEmail" style="width:20px; float:right; color: red;"></label><input id ="emailid" name="email" type="text" class="input" maxlength="255" onchange="VerificaEmail();"><br />
+                    <label style="width:265px; color: red;"><font size="2">Exemplo: a@a.com</font></label><br />
+                        <label>Senha:</label><label id="lblSenhas" style="width:20px; float:right; color: red;"></label><input id="senha1id" name="senha" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br /><br />
                         <label>Confirme a senha:</label><input id="senha2id" name="senha2" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br />
                         <label id="lblDica" style="width:265px"></label><br />
                     <label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10"><br />
