@@ -12,7 +12,7 @@
         </ul>
         <br /> -->
       
-        <h2>${requestScope.title}</h2>
+        <h3>${requestScope.title}</h3>
         <ul>
            <c:forEach var="usr" items="${requestScope.listaAmigos}">
                 <li><a href="MostraPerfil?id=${usr.idusuario}"><img src="${usr.imagemPerfil}" class=imagemPerfilBarra>
@@ -25,7 +25,7 @@
        <br />
 
         <div id="busca" class="busca">
-            <h2>Busca</h2>
+            <h3>Busca</h3>
                 <form method="post" action="Busca">
                    <p>
                        <input type="text" name="termos" class="input" maxlength="100" />
