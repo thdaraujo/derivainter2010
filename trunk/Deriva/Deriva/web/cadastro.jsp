@@ -24,11 +24,13 @@
                     {
                        document.getElementById('botao').disabled=true;
                        document.getElementById('lblEmail').innerHTML = '<img src="images/error.png" width="20" height="20>';
+                       document.getElementById('lblDicaEmail').innerHTML = 'e-mail Inválido';
                     }
                 else
                     {
                         document.getElementById('botao').disabled=false;
                         document.getElementById('lblEmail').innerHTML = '<img src="images/check.gif" width="20" height="20>';
+                        checaEmail();
                         VerificaSenha();
                     }
             };
@@ -62,8 +64,26 @@
                                     document.getElementById('lblDica').innerHTML = "Caractere não permitido";
                                 }
                             }
-            }
+            };
 
+            function checaEmail()
+            {
+                HttpSession session = request.getSession();
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                bool = $('#emailNovo').val();
+                xmlhttp.open("GET", "checaEmail?e=" + email ,false);
+                xmlhttp.send();
+                bool = session.getAttribute("emailNovo");
+                alert(bool);
+
+            }
         </script>
         <title>Ficha de Embarque</title>
     </head>
@@ -73,10 +93,10 @@
                 <h1><p>Preencha sua ficha de embarque no <strong>Deriva</strong>!<br /></h1>
                 <form id="Cadastro" method="post" action="Cadastra">
                     <label>E-Mail:</label><label id="lblEmail" style="width:20px; float:right; color: red;"></label><input id ="emailid" name="email" type="text" class="input" maxlength="255" onchange="VerificaEmail();"><br />
-                    <label style="width:265px; color: red;"><font size="2">Exemplo: a@a.com</font></label><br />
+                    <font size="2"><label id="lblDicaEmail" style="width:265px; color: red;"></label></font><br />
                         <label>Senha:</label><label id="lblSenhas" style="width:20px; float:right; color: red;"></label><input id="senha1id" name="senha" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br /><br />
                         <label>Confirme a senha:</label><input id="senha2id" name="senha2" type="password" class="input"  maxlength="10" onchange="VerificaSenha();"><br />
-                        <label id="lblDica" style="width:265px"></label><br />
+                        <font size="2"><label id="lblDica" style="width:265px; color: red;"></label></font><br />
                     <label>Nickname:</label> <input name="nickname" type="text" class="input"  maxlength="10"><br />
                     <label>Nome:</label> <input name="nome" type="text" size="20" class="input"  maxlength="20"><br />
                     <label>Sobrenome:</label> <input name="sobrenome" type="text" class="input"  maxlength="100"><br />
