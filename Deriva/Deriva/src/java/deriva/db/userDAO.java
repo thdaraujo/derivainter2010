@@ -18,16 +18,16 @@ public class userDAO {
     PreparedStatement ps = null;
     private static final Logger LOG = Logger.getLogger(userDAO.class.getName());
     private ConnectionFactory connectionFactory;
-  //</editor-fold>
+    //</editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Construtores">
     protected userDAO() {
     }
 
     protected userDAO(ConnectionFactory cf) {
-            this.connectionFactory = cf;
+        this.connectionFactory = cf;
     }
-      //</editor-fold>
+    //</editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="ConnFactory">
     protected ConnectionFactory getConnectionFactory() {
@@ -38,12 +38,10 @@ public class userDAO {
         this.connectionFactory = connectionFactory;
     }// </editor-fold>
 
-/**
- *  Metodos
- */
-
+    /**
+     *  Metodos
+     */
 // <editor-fold defaultstate="collapsed" desc="INSERT">
-
     /**
      * Cadastra Usuario
      * @param usuario
@@ -103,9 +101,9 @@ public class userDAO {
         if (idusuario > 0 && idamigo > 0) {
             try {
                 conn = connectionFactory.getConnection();
-                ps = conn.prepareStatement("INSERT INTO RelAmigo ([idusuario] ,[idamigo])" +
-                        " VALUES (?, ?);");
-                
+                ps = conn.prepareStatement("INSERT INTO RelAmigo ([idusuario] ,[idamigo])"
+                        + " VALUES (?, ?);");
+
                 ps.setInt(1, idusuario);
                 ps.setInt(2, idamigo);
                 ps.executeUpdate();
@@ -133,9 +131,7 @@ public class userDAO {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="SELECT">
-
     /**
      * Verifica se a senha é válida para o email passado.
      * @param usuario
@@ -248,7 +244,7 @@ public class userDAO {
                 }
                 String mensagemPessoal = rs.getString("mensagemPessoal");
                 String imagemPerfil = rs.getString("imagemPerfil");
-                Date dtnasc = rs.getDate("dtnasc");                
+                Date dtnasc = rs.getDate("dtnasc");
 
                 u = new Usuario(idusuario, email, nome, senha, sobrenome, nickname, mensagemPessoal, sexo, imagemPerfil, dtnasc);
                 u.setIdusuario(idusuario);
@@ -412,12 +408,12 @@ public class userDAO {
      * Lista todos os usuarios cadastrados.
      * @return
      */
-    public List<Usuario> ListarUsuarios(){
-       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-       Usuario u = null;
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
+    public List<Usuario> ListarUsuarios() {
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        Usuario u = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             conn = connectionFactory.getConnection();
@@ -464,31 +460,31 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
         return null;
     }
 
-
     /**
      * Lista todos os usuarios cadastrados de forma paginada.
      * @return
      */
-    public List<Usuario> ListarUsuariosPaginado(int numeroPagina){
-       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-       Usuario u = null;
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
-       int inicio = 0;
-       int fim = 11;
+    public List<Usuario> ListarUsuariosPaginado(int numeroPagina) {
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        Usuario u = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int inicio = 0;
+        int fim = 11;
 
-       //multiplo de 11
-       if (numeroPagina > 0){
-           inicio = numeroPagina * 10;
-           fim = inicio + 11;
-       }
+        //multiplo de 11
+        if (numeroPagina > 0) {
+            inicio = numeroPagina * 10;
+            fim = inicio + 11;
+        }
 
 
 
@@ -496,17 +492,17 @@ public class userDAO {
             conn = connectionFactory.getConnection();
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
-            ps = conn.prepareStatement("SELECT  * FROM (" +
-                                                        " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number, " +
-                                                        " idusuario, email, senha, nickname, nome, sobrenome, sexo, " +
-                                                        " mensagemPessoal, imagemPerfil, dtnasc " +
-                                                        " FROM Usuario" +
-                                                        ") foo " +
-                                        " WHERE row_number > ? and row_number <= ?;");
+            ps = conn.prepareStatement("SELECT  * FROM ("
+                    + " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number, "
+                    + " idusuario, email, senha, nickname, nome, sobrenome, sexo, "
+                    + " mensagemPessoal, imagemPerfil, dtnasc "
+                    + " FROM Usuario"
+                    + ") foo "
+                    + " WHERE row_number > ? and row_number <= ?;");
 
             ps.setInt(1, inicio);
             ps.setInt(2, fim);
-            
+
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -548,7 +544,8 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
         return null;
@@ -558,20 +555,20 @@ public class userDAO {
      * Lista todos os amigos de um usuario de forma paginada.
      * @return
      */
-    public List<Usuario> ListarTripulantesPaginado(int numeroPagina,int idusuariologado){
-       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-       Usuario u = null;
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
-       int inicio = 0;
-       int fim = 11;
+    public List<Usuario> ListarTripulantesPaginado(int numeroPagina, int idusuariologado) {
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        Usuario u = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int inicio = 0;
+        int fim = 11;
 
-       //multiplo de 11
-       if (numeroPagina > 0){
-           inicio = numeroPagina * 10;
-           fim = inicio + 11;
-       }
+        //multiplo de 11
+        if (numeroPagina > 0) {
+            inicio = numeroPagina * 10;
+            fim = inicio + 11;
+        }
 
 
 
@@ -579,12 +576,12 @@ public class userDAO {
             conn = connectionFactory.getConnection();
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
-            ps = conn.prepareStatement("SELECT  * FROM (" +
-                    " SELECT ROW_NUMBER() OVER (ORDER BY RelAmigo.idusuario ASC) AS row_number," +
-                    " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
-                    " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
-                    " where RelAmigo.idusuario = ?) foo " +
-                    " WHERE row_number > ? and row_number <= ?;");
+            ps = conn.prepareStatement("SELECT  * FROM ("
+                    + " SELECT ROW_NUMBER() OVER (ORDER BY RelAmigo.idusuario ASC) AS row_number,"
+                    + " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc "
+                    + " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario "
+                    + " where RelAmigo.idusuario = ?) foo "
+                    + " WHERE row_number > ? and row_number <= ?;");
 
             ps.setInt(1, idusuariologado);
             ps.setInt(2, inicio);
@@ -633,30 +630,31 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
         return null;
     }
 
-    public List<Usuario> listarAmigos(int idusuario){
+    public List<Usuario> listarAmigos(int idusuario) {
         List<Usuario> listaAmigos = new ArrayList<Usuario>();
 
-       Usuario u = null;
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
+        Usuario u = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             conn = connectionFactory.getConnection();
 
-            ps = conn.prepareStatement("SELECT Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
-                    " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
-                    " where RelAmigo.idusuario = ?;");
+            ps = conn.prepareStatement("SELECT Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc "
+                    + " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario "
+                    + " where RelAmigo.idusuario = ?;");
             ps.setInt(1, idusuario);
             rs = ps.executeQuery();
 
-             while (rs.next()) {
+            while (rs.next()) {
                 int id = rs.getInt("idusuario");
                 String email = rs.getString("email");
                 String nickname = rs.getString("nickname");
@@ -695,10 +693,11 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
-        return null;   
+        return null;
     }
 
     /***
@@ -706,22 +705,22 @@ public class userDAO {
      * @param idusuario
      * @return
      */
-     public List<Integer> listarAmigosIds(int idusuario){
-       List<Integer> listaAmigos = new ArrayList<Integer>();
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
+    public List<Integer> listarAmigosIds(int idusuario) {
+        List<Integer> listaAmigos = new ArrayList<Integer>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             conn = connectionFactory.getConnection();
 
-            ps = conn.prepareStatement("SELECT Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
-                    " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario " +
-                    " where RelAmigo.idusuario = ?;");
+            ps = conn.prepareStatement("SELECT Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc "
+                    + " FROM RelAmigo join USUARIO on RelAmigo.idamigo = Usuario.idusuario "
+                    + " where RelAmigo.idusuario = ?;");
             ps.setInt(1, idusuario);
             rs = ps.executeQuery();
 
-             while (rs.next()) {
+            while (rs.next()) {
                 int idamigo = rs.getInt("idusuario");
                 listaAmigos.add(idamigo);
             }
@@ -745,7 +744,8 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
         return null;
@@ -758,53 +758,55 @@ public class userDAO {
      * @return
      * @throws SQLException
      */
-    public List<Usuario> ListarUsuarios(int[] ids) throws SQLException{
+    public List<Usuario> ListarUsuarios(int[] ids) throws SQLException {
         List<Usuario> listaUsuarios = null;
         Usuario u = null;
 
         for (int id : ids) {
-            if (id > 0){
+            if (id > 0) {
                 u = FindUsuarioById(id);
-                if (u != null) listaUsuarios.add(u);
+                if (u != null) {
+                    listaUsuarios.add(u);
+                }
             }
         }
         return listaUsuarios;
     }
 
-    public List<Usuario> BuscarUsuarios(int numeroPagina, String termosBusca){
-       List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-       Connection conn = null;
-       PreparedStatement ps = null;
-       ResultSet rs = null;
-       int inicio = 0;
-       int fim = 11;
-       Usuario u = null;
+    public List<Usuario> BuscarUsuarios(int numeroPagina, String termosBusca) {
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int inicio = 0;
+        int fim = 11;
+        Usuario u = null;
 
-       //multiplo de 11
-       if (numeroPagina > 0){
-           inicio = numeroPagina * 10;
-           fim = inicio + 11;
-       }
+        //multiplo de 11
+        if (numeroPagina > 0) {
+            inicio = numeroPagina * 10;
+            fim = inicio + 11;
+        }
 
         try {
             conn = connectionFactory.getConnection();
 
             //Seleciona os usuarios de forma paginada - de 11 em 11.
-            ps = conn.prepareStatement("SELECT  * FROM (" +
-                            " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number," +
-                            " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc " +
-                            " FROM Usuario " +
-                            " where upper(email) like upper(?) " +
-                            " or upper(nickname) like upper(?) " +
-                            " or upper(nome) like upper(?) " +
-                            " or upper(sobrenome) like upper(?) " +
-                    " ) foo " +
-                    " WHERE row_number > ? and row_number <= ?;");
+            ps = conn.prepareStatement("SELECT  * FROM ("
+                    + " SELECT ROW_NUMBER() OVER (ORDER BY idusuario ASC) AS row_number,"
+                    + " Usuario.idusuario, Usuario.email, Usuario.senha, Usuario.nickname, Usuario.nome, Usuario.sobrenome, Usuario.sexo, Usuario.mensagemPessoal, Usuario.imagemPerfil, Usuario.dtnasc "
+                    + " FROM Usuario "
+                    + " where upper(email) like upper(?) "
+                    + " or upper(nickname) like upper(?) "
+                    + " or upper(nome) like upper(?) "
+                    + " or upper(sobrenome) like upper(?) "
+                    + " ) foo "
+                    + " WHERE row_number > ? and row_number <= ?;");
 
-            ps.setString(1, "%"+termosBusca+"%");
-            ps.setString(2, "%"+termosBusca+"%");
-            ps.setString(3, "%"+termosBusca+"%");
-            ps.setString(4, "%"+termosBusca+"%");
+            ps.setString(1, "%" + termosBusca + "%");
+            ps.setString(2, "%" + termosBusca + "%");
+            ps.setString(3, "%" + termosBusca + "%");
+            ps.setString(4, "%" + termosBusca + "%");
             ps.setInt(5, inicio);
             ps.setInt(6, fim);
 
@@ -851,22 +853,71 @@ public class userDAO {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) { }
+                } catch (SQLException e) {
+                }
             }
         }
         return null;
     }
 
+    public List<Usuario> ListarUsuariosAtivos() {
+        //TODO adicionar coluna ativo na tabela usuarios e modificar classe Usuario.
+        return null;
+    }
 
-     public List<Usuario> ListarUsuariosAtivos(){
-         //TODO adicionar coluna ativo na tabela usuarios e modificar classe Usuario.
-         return null;
-     }
+    public String checaEmail(String email)
+    {
+        Connection conn1 = null;
+        PreparedStatement ps1 = null;
+        ResultSet rs = null;
+        String bool = "false";
+        try
+        {
+            conn1 = connectionFactory.getConnection();
+            ps1 = conn1.prepareStatement("select idusuario from Usuario where email = ");
+            rs = ps1.executeQuery();
+            if(!rs.next())
+            {
+                bool = "true";
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (ps1 != null)
+            {
+                try
+                {
+                    ps1.close();
+                }
+                catch (SQLException e)
+                {
+                }
+            }
+            if (conn1 != null)
+            {
+                try
+                {
+                    conn1.close();
+                }
+                catch (SQLException e)
+                {
+                }
+            }
+        }
+        return bool;
+    }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="UPDATE">
-
     /**
      * UPDATE dos dados do usuario.
      * @param usuario
@@ -928,55 +979,52 @@ public class userDAO {
                 }
             }
         } else {
-           
         }
     }
-    
+
     public void UpdatePerfil(Usuario usuario) throws Exception {
-     
 
-            try {
-                conn = connectionFactory.getConnection();
 
-                final String query = "UPDATE Usuario " +
-                        "SET " +
-                        "nickname = ?, " +
-                        "mensagemPessoal = ?, " +
-                        "imagemPerfil = ? " +
-                        "WHERE idusuario = ?";
+        try {
+            conn = connectionFactory.getConnection();
 
-                ps = conn.prepareStatement(query);
+            final String query = "UPDATE Usuario "
+                    + "SET "
+                    + "nickname = ?, "
+                    + "mensagemPessoal = ?, "
+                    + "imagemPerfil = ? "
+                    + "WHERE idusuario = ?";
 
-                ps.setString(1, usuario.getNickname());
-                ps.setString(2, usuario.getmensagemPessoal());
-                ps.setString(3, usuario.getImagemPerfil());
-                //WHERE idusuario = ?
-                ps.setInt(4, usuario.getIdusuario());
-                ps.executeUpdate();
+            ps = conn.prepareStatement(query);
 
-            } catch (SQLException ex) {
-                LOG.log(Level.SEVERE, null, ex);
-                throw ex;
-            } finally {
-                if (ps != null) {
-                    try {
-                        ps.close();
-                    } catch (SQLException e) {
-                    }
+            ps.setString(1, usuario.getNickname());
+            ps.setString(2, usuario.getmensagemPessoal());
+            ps.setString(3, usuario.getImagemPerfil());
+            //WHERE idusuario = ?
+            ps.setInt(4, usuario.getIdusuario());
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            LOG.log(Level.SEVERE, null, ex);
+            throw ex;
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
                 }
-                if (conn != null) {
-                    try {
-                        conn.close();
-                    } catch (SQLException e) {
-                    }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
                 }
-            }    
-             
+            }
+        }
+
     }
 
-
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="DELETE">
     /**
      * DELETE usuario por id.
@@ -1032,8 +1080,6 @@ public class userDAO {
             }
         }
     }
-
 // </editor-fold>
-
 //Fim dos metodos.
 }
