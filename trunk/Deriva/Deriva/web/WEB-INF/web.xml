@@ -61,6 +61,10 @@
         <servlet-name>Busca</servlet-name>
         <servlet-class>deriva.app.Busca</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checaEmail</servlet-name>
+        <servlet-class>deriva.app.checaEmail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
@@ -120,6 +124,10 @@
     <servlet-mapping>
         <servlet-name>Busca</servlet-name>
         <url-pattern>/Busca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checaEmail</servlet-name>
+        <url-pattern>/checaEmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

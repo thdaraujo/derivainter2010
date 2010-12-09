@@ -29,8 +29,9 @@
                 else
                     {
                         document.getElementById('botao').disabled=false;
-                        document.getElementById('lblEmail').innerHTML = '<img src="images/check.gif" width="20" height="20>';
-                        checaEmail();
+                        document.getElementById('lblDicaEmail').innerHTML = '';
+                        document.getElementById('lblEmail').innerHTML = '<img src="images/check.png" width="20" height="20>';
+                        //checaEmail();
                         VerificaSenha();
                     }
             };
@@ -43,7 +44,7 @@
                         if(senha1 == senha2 && !senha1.match(regexp) && senha1.length >= 6)
                             {
                                 document.getElementById('botao').disabled=false;
-                                document.getElementById('lblSenhas').innerHTML = '<img src="images/check.gif" width="20" height="20>';
+                                document.getElementById('lblSenhas').innerHTML = '<img src="images/check.png" width="20" height="20>';
                                 document.getElementById('lblDica').innerHTML = "";
                                 VerificaEmail();
                             }
@@ -66,7 +67,7 @@
                             }
             };
 
-            function checaEmail()
+            /*function checaEmail()
             {
                 HttpSession session = request.getSession();
                 if (window.XMLHttpRequest)
@@ -83,7 +84,7 @@
                 bool = session.getAttribute("emailNovo");
                 alert(bool);
 
-            }
+            }*/
         </script>
         <title>Ficha de Embarque</title>
     </head>
